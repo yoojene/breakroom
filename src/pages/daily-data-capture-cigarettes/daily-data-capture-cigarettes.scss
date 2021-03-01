@@ -1,0 +1,137 @@
+page-daily-data-capture-cigarettes {
+
+  &--day-circle-container {
+    padding-top: 50px
+  }
+
+  .daily-data-capture-cigarettes-circle {
+    display: inline-block;
+    border-radius: 75%;
+    border: solid 1.5px #68c9d3;
+    width: 76px;
+    height: 80px;
+    padding-top: 20px;
+  }
+
+  .daily-data-capture-cigarettes-day {
+    color: #68c9d3;
+    font-family:  sans-serif;
+    font-size: 35px;
+  }
+
+  .error {
+    color: color($colors, danger) !important;
+    font-size: 14px;
+  }
+
+  .vertical-gap{
+    height: 7%;
+  }
+  .item-ios{
+    background-color: transparent;
+  }
+  .item-md{
+    background-color: transparent;
+  }
+  ion-select {
+    max-width: 80%;
+  }
+  ion-datetime-ios {
+    padding: 0px;
+  }
+  ion-datetime-md {
+    padding: 0px;
+  }
+  ion-datetime {
+    max-width: 80%;
+  }
+
+  .button-ios-light{
+    background-color: transparent;
+  }
+  .button-md-light{
+    background-color: transparent;
+  }
+
+  .item-ios.item-block .item-inner{
+    border-bottom: 0;
+  }
+  .label-ios{
+    color: gray;
+    font-size: 14px;
+  }
+  .datetime-text.datetime-placeholder {
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+  }
+
+  .item-select {
+    margin-left: 3.8rem;
+  }
+
+  .helix--input {
+    background-position: 95% 12px;
+    padding-left: 15px;
+  }
+  .date-item {
+    border: 1px solid var(--light-grey);
+    margin-left: 3.8rem;
+    border-radius:  5px;
+    margin-bottom: 2rem;
+  }
+
+  .select-text {
+    padding-top: 0.5rem;
+    padding-right: 41px;
+    padding-left: 5px;
+    text-align: left;
+    font-size: 1.6rem;
+  }
+
+  button {
+    color: lightcoral;
+  }
+  .round-button-circle:active {
+    background: map-get($colors, lightred);
+  }
+  .round-button-circle:hover {
+    background: map-get($colors, lightred);
+  }
+  .horizontal-wrap {
+    display: flex;
+    justify-content: center;
+    // do not remove from this block
+    .button-inner {
+      float: left;
+      width: 100%;
+      padding-top: 65%;
+      padding-bottom: 50%;
+      line-height: 1em;
+      text-align: center;
+      color: map-get($colors, mediumcyan);
+      font-family: Verdana;
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+    .round-button-avatar {
+      width: 76px;
+      height: 80px;
+      padding:5px;
+      background-repeat: no-repeat;
+      background: (url("../assets/imgs/f-questionmark.svg") no-repeat);
+    }
+
+  }
+
+  .horizontal-gap {
+    width: 2.5em;
+  }
+
+  .review{
+    color: color($colors, dullyellowgreen);
+    padding-left: 5%;
+    padding-top: 5%;
+  }
+}

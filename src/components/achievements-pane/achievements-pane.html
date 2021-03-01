@@ -1,0 +1,31 @@
+<hr class="hr-divider">
+<div class="achievements-pane" *mobxAutorun>
+  <div text-center  [class]="headerClass" [innerHTML]="achievementTitle">
+  </div><ion-icon
+  *ngIf="type === 'money'"
+  style="color:grey;padding-top: 30px;font-size: 1.5em;"
+  (click)="onProjectedLifeSavingsProgressTap()"
+  name="ios-information-circle-outline">
+  </ion-icon>
+  <ion-grid>
+    <ion-row *ngIf="!displayAchievements">
+      <ion-col>
+        <div text-center>
+          <ion-spinner item-start name="ios"></ion-spinner>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row
+      *ngIf="displayAchievements && displayAchievements.length > 0"
+      class="achievements-pane--achievement-row" >
+      <ion-col class="col5" text-center *ngFor="let av of displayAchievements; let idx = index">
+          <div class="achievement-image" *ngIf="av.unlocked === true" [ngStyle]="{'background-image': 'url(' + av.reachedUrl +')'}"
+            (click)="onAchievementSelect(av)">
+          </div>
+          <div class="achievement-image" *ngIf="av.unlocked === false" [ngStyle]="{'background-image': 'url(' + av.toObtainUrl +')'}">
+          </div>
+          <div class="achievement-body-text" text-center [innerHTML]="av.title"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

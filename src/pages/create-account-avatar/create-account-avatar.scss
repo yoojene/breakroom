@@ -1,0 +1,49 @@
+page-create-account-avatar {
+  .page-create-account-avatar {
+      &--main-text {
+        color: color($colors, brgrey);
+    }
+
+      &--avatar-row {
+         display: flex;
+         flex-flow: row wrap;
+         justify-content: center;
+         .avatar-image {
+            background-size: cover;
+            padding-right: 5px;
+            padding-bottom: 4.2em;
+            border-radius: 50%;
+            border: 5px transparent;
+            overflow: hidden;
+            width: 80px;
+            height: 80px;
+            float: left;
+            margin-right: 5px;
+            .avatar-text{
+              text-align: center;
+              align-self: center;
+            }
+         }
+      }
+    &--avatar-holder {
+      padding-top: 15px;
+    }
+
+
+  .avatar-selected {
+    box-shadow: 0 0 0 5px color($colors, dullyellowgreen) !important;
+  }
+
+  // Android - Galaxy S8 width
+  @media only screen and (max-width: 370px)  {
+     &--avatar-row {
+         .avatar-image {
+            width: 70px;
+            height: 70px;
+         }
+        }
+
+  }
+
+ }
+}

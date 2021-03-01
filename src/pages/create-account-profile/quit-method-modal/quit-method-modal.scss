@@ -1,0 +1,43 @@
+.quit-alert-container  {
+  display: block;
+  background: white;
+  height: 87%;
+  width: 66%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  border-radius: 2.5%;
+  position: relative;
+}
+
+
+.quit-alert-header {
+  background:(url('../assets/imgs/icon-green-nosmoking.svg'));
+  height: 100px;
+  width: 100px;
+    margin-left: auto;
+  margin-right: auto;
+
+}
+
+.quit-alert-title {
+  color: color($colors, dullyellowgreen);
+}
+
+.quit-alert-text {
+  overflow: auto;
+  height: calc(100% - 20rem);
+}
+.quit-alert-button {
+  color: color($colors, dullyellowgreen);
+  border-color: color($colors, dullyellowgreen);
+  position: absolute;
+  bottom: 0;
+  border-bottom: none;
+}
+
+.button-outline-ios.activated {
+    color: color($colors, dullyellowgreen);
+    background-color: transparent;
+}
+

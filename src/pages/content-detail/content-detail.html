@@ -1,0 +1,18 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{contentTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="content" id="content">
+      <img [src]="content.attributes.header_image.value" >
+      <h1 class="page-content-detail--headline" [innerHTML]="content.attributes.headline"> </h1>
+      <div class="content-body" [innerHTML]="content.attributes.text.body"></div>
+      <div [innerHTML]="content.attributes.references_text.references"></div>
+    </div>
+</ion-content>

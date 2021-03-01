@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar color="turquiose">
+        <ion-title>Notifications</ion-title>
+        <ion-buttons end>
+            <div class="page-dashboard--notifications"></div>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item no-lines>
+    <ion-label>Notifications<br/>
+        <p ion-text text-wrap>Save notification.</p>
+        <p ion-text text-wrap>(Turn notifications on/off)</p>
+    </ion-label>
+    <ion-toggle  (ionChange)="onChangeEnableNotification()" [(ngModel)]="enableNotification"></ion-toggle>
+  </ion-item>
+  <!-- <button ion-item (click)="onPushNotificationTap()">
+      Push Notifications
+  </button> -->
+</ion-content>

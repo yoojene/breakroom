@@ -1,0 +1,16 @@
+page-content {
+
+  .content-body{
+    margin-bottom: 70px; 
+  }
+  
+  ion-content {
+    top: 4rem;
+  }
+  .page-content {
+    &--headline {
+      margin-top: 1rem;
+    }
+  }
+
+}

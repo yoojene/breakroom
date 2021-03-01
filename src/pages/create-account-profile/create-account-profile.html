@@ -1,0 +1,85 @@
+
+<ion-header>
+
+  <ion-navbar hideBackButton>
+    <ion-title>{{createAccountTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="page-create-account-profile" padding>
+
+  <div text-center class="page-create-account-profile--main-text" [innerHTML]="this.createAccountBodyText">
+  </div>
+  <ion-list>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div text-center>
+
+        <!-- Quit Method -->
+        <div text-left class="page-create-account-profile--profile-label">
+          {{quitMethodText}}
+          <ion-icon
+           style="color:gray"
+          (click)="onQuitMethodInfoTap()"
+          name="information-circle"></ion-icon>
+        </div>
+        <ion-item class="helix--input page-create-account-profile--item">
+          <ion-label class="input" *ngIf="!profileForm.controls['quitMethod'].value">{{quitMethodPlaceholder}}</ion-label>
+          <ion-select #quitMethod
+            formControlName="quitMethod"
+            (ionChange)="onQuitMethodChange()"
+            (ionFocus)="onQuitMethodTouched()">
+            <ion-option
+              *ngFor="let quit of quitMethods"
+              [value]="quit.abbr">
+              {{quit.name}}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <div class="page-create-account-profile--error" *ngIf="profileForm.controls['quitMethod'].errors?.required && profileForm.controls['quitMethod'].touched">{{quitMethodErrReq}}</div>
+
+        <!-- Start Date -->
+      <div text-left class="page-create-account-profile--profile-label">{{startDateText}}</div>
+      <ion-item class="helix--input page-create-account-profile--item">
+        <ion-label class="input" *ngIf="!profileForm.controls['startDate'].value">{{dateText}}</ion-label>
+        <ion-datetime formControlName="startDate" displayFormat="D MMM YYYY" (ionChange)="onStartDateChanged($event)" [min]="startAndQuitDateMin" [max]="startAndQuitDateMax"></ion-datetime>
+      </ion-item>
+      <div class="page-create-account-profile--error" *ngIf="profileForm.controls['startDate'].errors?.required && profileForm.controls['startDate'].touched">{{startDateErrReq}}</div>
+
+      <!-- Quit Date -->
+      <div text-left class="page-create-account-profile--profile-label">{{quitDateText}}</div>
+      <ion-item class="helix--input page-create-account-profile--item">
+        <ion-label class="input" *ngIf="!profileForm.controls['quitDate'].value">{{dateText}}</ion-label>
+        <ion-datetime [disableControl]="!profileForm.controls['quitMethod'].value" formControlName="quitDate" displayFormat="D MMM YYYY" [max]="quitDateMax" [min]="quitDateMin"></ion-datetime>
+      </ion-item>
+      <div class="page-create-account-profile--error" *ngIf="profileForm.controls['quitDate'].errors?.required && profileForm.controls['quitDate'].touched">{{quitDateErrReq}}</div>
+
+      <!-- User Name -->
+      <div text-left class="page-create-account-profile--profile-label">{{userNameText}}</div>
+      <label class="helix--label username-label">
+        <input class="helix--input icon keys username-input"
+        [ngStyle]="{'background-image' : profileForm.controls['username'].value ? 'none' : ''}"
+        formControlName="username" name="" placeholder="Username" (keydown)="onKeyDown($event)"
+        (blur)="onUserNameUnfocused($event)"/>
+      </label>
+      <div class="page-create-account-profile--error username-error" *ngIf="profileForm.controls['username'].errors?.required && profileForm.controls['username'].touched">{{userNameErrReq}}</div>
+      <div class="page-create-account-profile--error username-error" *ngIf="(profileForm.controls['username'].errors?.blacklistWords) && profileForm.controls['username'].dirty">{{userNameErrInvalidSwear}}</div>
+      <div class="page-create-account-profile--error username-error" *ngIf="(profileForm.controls['username'].errors?.maxlength) && profileForm.controls['username'].dirty">{{userNameErrInvalid}}</div>
+      <div class="page-create-account-profile--error username-error" *ngIf="(profileForm.controls['username'].errors?.duplicate) && profileForm.controls['username'].dirty">{{userNameErrTaken}}</div>
+      <a text-right class="page-create-account-profile--profile-label username" (click)="onNeedUserNameTap()">{{needUserNameText}}</a>
+      <div class="page-create-account-profile--review" [innerHTML]="reviewMessage"></div>
+      <!-- NEXT button -->
+      <button
+        text-center
+        ion-button
+        large
+        class="breakroom--button-default helix--submit"
+        type="submit"
+        [disabled]="(!profileForm.valid || !this.profileEnableForm) "
+        >
+        {{nextButtonText}}
+      </button>
+    </div>
+    </form>
+  </ion-list>

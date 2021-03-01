@@ -1,0 +1,11 @@
+<div class="quit-alert-container">
+<!-- <div class="alert-wrapper"> -->
+  <br>
+  <div class="quit-alert-header"></div>
+  <div text-center class="quit-alert-title" [innerHTML]="quitDateTitle"></div>
+ 
+    <div text-center padding-botton padding-left padding-right class="quit-alert-text" [innerHTML]="quitDateText">
+      </div>
+ 
+<button class="quit-alert-button" ion-button full outline (click)="onOkTap()"> {{okButton}}</button>
+</div>

@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-navbar color="turquiose">
+        <ion-title>Notifications</ion-title>
+        <ion-buttons end>
+            <div class="page-dashboard--notifications"></div>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+
+<ion-content *mobxAutorun class="page-notifications">
+  <div *ngIf="nStore.notification && nStore.notification.length === 0 && loading === true" text-center padding-top>
+    <ion-spinner item-start name="ios"></ion-spinner>
+  </div>
+  <div *ngIf="nStore.notification && nStore.notification.length === 0 && loading === false" text-center>
+    <ion-item text-center>
+      {{noNewNotifications}}
+    </ion-item>
+  </div>
+ <ion-list no-padding *ngIf="nStore.notification && nStore.notification.length > 0">
+   <ion-item *ngFor="let not of nStore.notification" [ngStyle]="{'background-color': not?.seen === false ? '#E2E2E2' : ''}" (click)="onNotificationTap(not)">
+      <ion-row>
+        <ion-col col-2>
+          <div class="page-notifications--notifications-row">
+            <div class="page-notifications--profile">
+              <ion-avatar item-start>
+                <img src="{{not?.attributes.avatarUrl}}" alt="">
+              </ion-avatar>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-10>
+          <ion-row>
+            <ion-col col-6>
+              <span>
+                <h6>{{not?.attributes.username}}</h6>
+              </span>
+            </ion-col>
+            <ion-col col-6>
+              <div class="page-notifications--time">{{not.sharedTime}}&nbsp;{{agoText}}</div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-wrap>
+              <div *ngIf="not.notificationType==='achievement'">
+               {{congratsText}}
+                 <span [innerHTML]="not?.attributes?.achievementTitle"> </span>
+                {{goalText}}
+              </div>
+              <div *ngIf="not.notificationType==='reaction'"
+                [innerHTML]="not?.attributes?.achievementBodyText">
+              </div>
+              <div *ngIf="not.notificationType==='dailyDiary'"
+                [innerHTML]="not?.attributes?.notificationTitle">
+              </div>
+              <div *ngIf="not.notificationType==='reminder'"
+                [innerHTML]="not?.attributes?.notificationTitle">
+              </div>
+              <div *ngIf="not.notificationType==='profile'">
+                {{hiText}}
+                <span [innerHTML]="not?.attributes?.notificationTitle"></span>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+    </ion-row>
+   </ion-item>
+        <hr>
+ </ion-list>
+
+</ion-content>

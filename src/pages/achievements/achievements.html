@@ -1,0 +1,70 @@
+
+<tabs-header [hasNotification]="hasNotification"  [headerTitle]="achievementsHeader"> </tabs-header>
+
+<ion-content *mobxAutorun>
+
+<!-- Last Achievement -->
+<last-achievement *ngIf="(userStore.user.latestUnlockedAchievement | json) !== '{}'"
+[animOptions]="animOptions"
+[achievementBodyText]="userStore.user.latestUnlockedAchievement.body"
+[achievementTitle]="userStore.user.latestUnlockedAchievement.title"
+[width]=350
+[height]=350
+[showAnimation]="true"
+[showImage]="false"
+[showHeader]="true"
+[showSpinner]="showSpinner"
+[showCelebrate]="!userStore.user.latestUnlockedAchievement.celebrated"
+[showAchievementText]="true"
+[showAchievementTitle]="true"
+(celebrateAchievement)="onCelebrateAchievementTap($event)"
+(animationEvent)="onAnimationEventEmitted($event)"
+></last-achievement>
+
+<reaction *ngIf="userStore.user.latestUnlockedAchievement.celebrated"
+ [achievementEventId]="userStore.user.latestUnlockedAchievement.eventId"
+ [achievementPersonId]="userStore.user.latestUnlockedAchievement.janrainId"
+ [isLatestAchievement]="true"
+ [showLike]="true"
+ [showHighFive]="true"
+>
+</reaction>
+
+<!-- My Progress -->
+<achievements-pane
+(selectedAchievement)="onAchievementSelected($event, 'progress')"
+[achievementTitle]="progressHeader"
+[unlockedAchievements]="unlockedProgressAchievements"
+type="progress"
+>
+</achievements-pane>
+
+<!-- My Health -->
+<achievements-pane
+(selectedAchievement)="onAchievementSelected($event, 'health')"
+[achievementTitle]="heathHeader"
+[unlockedAchievements]="unlockedHealthAchievements"
+type="health"
+>
+</achievements-pane>
+
+<!-- My Money -->
+<achievements-pane
+(selectedAchievement)="onAchievementSelected($event, 'money')"
+[achievementTitle]="moneyHeader"
+[unlockedAchievements]="unlockedMoneyAchievements"
+
+type="money"
+>
+</achievements-pane>
+
+<!-- Community -->
+<achievements-pane class="community-achievements"
+(selectedAchievement)="onAchievementSelected($event, 'community')"
+[achievementTitle]="communityHeader"
+[unlockedAchievements]="unlockedCommunityAchievements"
+
+type="community"
+>
+</achievements-pane>
+</ion-content>

@@ -1,0 +1,28 @@
+page-login {
+  .helix--submit {
+    margin-top: 0px;
+  }
+  .login-icon {
+    background: color($colors, turquiose);
+    background:(url('../assets/imgs/BREAKROOM_blue_icon.svg')) no-repeat;
+    width: 16rem;
+    height: 16rem;
+    margin: 0 auto;
+  }
+  h3 {
+    margin-left: 10%;
+    width: 80%;
+  }
+  a {
+    color: color($colors, mediumcyan);
+  }
+  .remember-me {
+    width: 27%;
+  }
+  .remember-text {
+    margin: 3px 0px 0px -25px;
+  }
+  .checkbox-ios .checkbox-icon {
+    border-radius: 0%;
+  }
+}

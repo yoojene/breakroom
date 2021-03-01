@@ -1,0 +1,85 @@
+page-app-landing {
+
+  .page-app-landing {
+
+  .landing-icon {
+    background: color($colors, turquiose);
+    background:(url('../assets/imgs/BREAKROOM_blue_icon.svg')) no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto;
+  }
+
+    h1, p {
+      color: #FFFFFF;
+    }
+
+    background-color: color($colors, turquiose);
+
+    &--title {
+      width: 280px;
+      height: 66px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    &--error {
+      color: color($colors, danger);
+      margin-top: 2rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    &--sub-title {
+      width: 279px;
+      height: 100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+     &--sign-in {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: color($colors, brightcyan);
+        border-radius: 3.5rem
+    }
+     &--create-account {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        color: #FFFFFF;
+    }
+
+     .button-outline-ios {
+       border: none;
+     }
+     .button-outline-md {
+       border: none;
+     }
+
+    .page-app-landing--sign-in.button-ios.activated {
+       background-color: color($colors, brightcyan);
+     }
+    .page-app-landing--create-account.button-ios.activated {
+       background-color: color($colors, turquiose);
+     }
+
+    .page-app-landing--sign-in.button-md.activated {
+       background-color: color($colors, brightcyan);
+     }
+    .page-app-landing--create-account.button-md.activated {
+       background-color: color($colors, turquiose);
+     }
+
+
+
+
+  }
+
+
+
+}

@@ -1,0 +1,33 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{createAccountTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="page-create-account-avatar" padding>
+  <div
+  padding
+  class="page-create-account-avatar--main-text"
+  [innerHTML]="this.createAccountBodyText"></div>
+  <div class="page-create-account-avatar--avatar-row">
+  <div
+    class="page-create-account-avatar--avatar-holder"
+    *ngFor="let av of avatars; let idx = index">
+       <div class="avatar-image"
+        [ngStyle]="{'background-image': 'url(' + av.avatarUrl +')'}"
+        (click)="onAvatarSelect(av, idx)"
+        [ngClass]="av.selected ? 'avatar-selected' : ''">
+       </div>
+    </div>
+  </div>
+
+  <button
+  text-center
+  ion-button
+  large
+  class="breakroom--button-default helix--submit submit"
+  (click)="onNextTap()"
+  [disabled]="nextDisabled"
+  >{{nextButtonText}}</button>
+</ion-content>

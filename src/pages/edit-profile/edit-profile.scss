@@ -1,0 +1,105 @@
+page-edit-profile {
+  .page-edit-profile {
+
+     .button-outline-ios {
+       border: none;
+     }
+
+      h3:first-child {
+      margin-top: 0rem;
+    }
+
+    &--label-header {
+      color: #575656;
+      font-size: 11pt;
+      text-align: left;
+      display: inline-block;
+      width: 100%;
+      margin-left: 10%;
+      margin-bottom: 10px;
+    }
+
+     &--main-text {
+        color: color($colors, turquiose);
+
+      }
+     &--sub-text {
+        color: color($colors, brdarkgrey);
+        font-size: 13pt;
+      }
+
+      &--cancel {
+        color: color($colors, turquiose);
+        font-size: 2rem;
+      }
+
+        &--item {
+        border: 1px solid var(--light-grey);
+        width: 80%;
+        border-radius:  5px;
+        margin-bottom: 2rem;
+        }
+
+
+      &--div--cancel {
+        margin: 3rem;
+        margin-bottom: 2rem;
+        min-height: 50px;
+      }
+
+     &--date-item {
+        border: 1px solid var(--light-grey);
+        width: 80%;
+        margin-left: 3.8rem;
+        border-radius:  5px;
+        margin-bottom: 2rem;
+      }
+
+      .input {
+        font-size: 14px;
+        color: grey;
+      }
+
+      .postcode-input {
+        margin-bottom: -2rem;
+      }
+
+      .postcode-error {
+        margin-top: 0.2rem;
+      }
+
+
+      &--error {
+        color: color($colors, danger);
+        margin-top: -2rem;
+      }
+
+      &--error-datetime {
+         color: color($colors, danger);
+
+      }
+
+      &--postcodes {
+        text-align: left;
+        font-size: 2.0rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.5rem;
+        background-color: #FFF;
+        border-left: 1px solid var(--light-grey);
+        border-right: 1px solid var(--light-grey);
+        width: 90%;
+      }
+
+      &--postcodes:last-child {
+        border-bottom: 1px solid var(--light-grey);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      ul {
+        margin-left: -7px;
+        margin-right: 4px;
+      }
+  }
+
+}

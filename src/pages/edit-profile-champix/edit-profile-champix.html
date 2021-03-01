@@ -1,0 +1,131 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{editAccountTitle}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only>
+                <div class="notifications-header-icon"></div>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content *mobxAutorun class="page-edit-profile-champix">
+<div padding text-center class="page-edit-profile-champix--main-text" [innerHTML]="this.editAccountBodyText"></div>
+<div padding-left padding-right padding-bottom text-center class="page-edit-profile-champix--sub-text" [innerHTML]="this.editAccountBodySubText"></div>
+    <ion-list>
+      <div text-center>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <!-- quitMethod -->
+        <div text-left class="page-edit-profile-champix--label-header">Quit Method</div>
+        <label class="helix--label">
+          <input id="brk_Main_Input_email" class="helix--input icon keys"
+            disabled
+            style="background-color: #f3eeee;"
+            [ngStyle]="{'background-image' : profileForm.controls['quitMethod'].value ? 'none' : ''}"
+            formControlName="quitMethod" name="quitMethod" placeholder="quitMethod" />
+        </label>
+
+
+        <!-- Start Date -->
+        <div text-left class="page-edit-profile-champix--label-header">{{champixStartDateText}}</div>
+        <ion-item class="page-edit-profile-champix--date-item">
+          <ion-label class="input" *ngIf="!profileForm.controls['startDate'].value">{{dateText}}</ion-label>
+          <ion-datetime formControlName="startDate" displayFormat="D MMM YYYY" formControlName="startDate"
+          (ionChange)="onStartDateChanged($event)" [min]="startAndQuitDateMin" [max]="startAndQuitDateMax"></ion-datetime>
+        </ion-item>
+        <div class="page-create-account-profile--error" *ngIf="profileForm.controls['startDate'].errors?.required && profileForm.controls['startDate'].touched">{{startDateErrReq}}</div>
+
+        <!-- Quit Date -->
+        <div text-left class="page-edit-profile-champix--label-header">{{quitDateText}}</div>
+        <ion-item class="page-edit-profile-champix--date-item">
+          <ion-label class="input" *ngIf="!profileForm.controls['quitDate'].value">{{dateText}}</ion-label>
+          <ion-datetime [disableControl]="!profileForm.controls['previousQuitMethod'].value"
+          (ionChange)="onQuitMethodChange()"
+          formControlName="quitDate" displayFormat="D MMM YYYY" [max]="quitDateMax" [min]="quitDateMin"></ion-datetime>
+        </ion-item>
+        <div class="page-edit-profile-champix--error" *ngIf="!profileForm.controls['quitDate'].value">{{quitDateErrReq}}</div>
+        <br/>
+
+
+        <!-- Reason for quitting -->
+        <div text-left  class="page-edit-profile-champix--label-header">{{reasonQuittingTitle}}</div>
+        <ion-item class="helix--label page-edit-profile-champix--item">
+          <ion-select
+            #ionSelects
+            style="height: auto;"
+            #reasonQuitting
+            formControlName="reasonQuitting"
+            (ionFocus)="onQuitMethodTouched()"
+            [selectOptions]="{title: reasonQuittingTitle}"
+            placeholder="Please Select"
+          >
+              <ion-option text-wrap value="health">{{getHealthier}}</ion-option>
+              <ion-option text-wrap value="financial">{{tooExpensive}}</ion-option>
+              <ion-option text-wrap value="familyfriends">{{positiveExample}}</ion-option>
+              <ion-option text-wrap value="married">{{gettingMarried}}</ion-option>
+              <ion-option text-wrap value="family">{{family}}</ion-option>
+              <ion-option text-wrap value="social">{{social}}</ion-option>
+              <ion-option text-wrap value="dependent">{{dependant}}</ion-option>
+              <ion-option text-wrap value="healthScare">{{healthScare}}</ion-option>
+              <ion-option text-wrap value="job">{{newJob}}</ion-option>
+              <ion-option text-wrap value="other">{{other}}</ion-option>
+        </ion-select>
+        </ion-item>
+
+        <!-- Number of Years Smoked-->
+        <div text-left class="page-edit-profile-champix--label-header">Number of Years Smoked</div>
+        <label class="helix--label">
+          <input class="helix--input icon keys" [disabled]="true" type="number" [ngStyle]="{'background-image' : profileForm.controls['numberYearsSmoked'] ? 'none' : ''}"
+            formControlName="numberYearsSmoked" name="numberYearsSmoked" placeholder="Number" />
+        </label>
+        <div *ngIf="profileForm.controls['numberYearsSmoked'] === null" class="page-edit-profile-champix--error">{{invalidSmokingYearsBlankText}}</div>
+        <div *ngIf="profileForm.controls['numberYearsSmoked'].value != null && profileForm.controls['numberYearsSmoked'].value < 1 " class="page-edit-profile-champix--error">{{invalidSmokingYearserrorText}}</div>
+        <div *ngIf="profileForm.controls['numberYearsSmoked'].value >100 " class="page-edit-profile-champix--error">{{invalidSmokingYearsLimitText}}</div>
+        <div *ngIf="profileForm.controls['numberYearsSmoked'].value > relativeDiffYears && profileForm.controls['numberYearsSmoked'].value <100" class="page-edit-profile-champix--error">{{invalidSmokingYearsAgeLimitText}}</div>
+        <br />
+
+        <!-- How many times have you tried to quit before? -->
+        <div text-left class="page-edit-profile-champix--label-header">How many times have you tried to quit before?
+        </div>
+        <label class="helix--label">
+          <input class="helix--input icon keys" type="number" [disabled]="true"
+          [ngStyle]="{'background-image' : profileForm.controls['numberAttemptedQuits'] ? 'none' : ''}"
+            formControlName="numberAttemptedQuits" name="numberAttemptedQuits" placeholder="Number" />
+        </label>
+        <div *ngIf="profileForm.controls['numberAttemptedQuits'] === null" class="page-edit-profile-champix--error">{{invalidSmokingYearsBlankText}}</div>
+        <div *ngIf="profileForm.controls['numberAttemptedQuits'].value %1" class="page-edit-profile-champix--error">{{invalidQuitAttemptErrorText}}</div>
+        <div *ngIf="profileForm.controls['numberAttemptedQuits'].value > 100" class="page-edit-profile-champix--error">{{invalidQuitAttemptLimitErrorText}}</div>
+
+        <br />
+        <!-- Have you tried CHAMPIX® before? -->
+        <div text-left class="page-edit-profile-champix--label-header">Have you tried CHAMPIX® before?</div>
+        <ion-item class="helix--label page-edit-profile-champix--item" [selectOptions]="{title: 'Please select'}"
+        placeholder="Please select">
+          <ion-select #isTakenChampixBefore formControlName="isTakenChampixBefore" [selectOptions]="{title: 'Have you tried CHAMPIX® before?'}" placeholder="Please Select">
+            <ion-option value="true">Yes</ion-option>
+            <ion-option value="false">No</ion-option>
+            <ion-option value="dontremember">I can't remember</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- Which quit method were you on? -->
+        <div text-left class="page-edit-profile-champix--label-header">Which quit method were you on?</div>
+        <ion-item class="helix--label page-edit-profile-champix--item" placeholder="Please select">
+        <ion-select #quitMethod formControlName="previousQuitMethod"  [disabled]="profileForm.controls['isTakenChampixBefore'].value === 'false' || profileForm.controls['isTakenChampixBefore'].value === 'dontremember'" [selectOptions]="{title: quitMethodTitle}" placeholder="Please Select">
+          <ion-option *ngFor="let method of quitMethods" [value]="method.value">{{ method.name }}</ion-option>
+        </ion-select>
+        </ion-item>
+
+        <!-- NEXT button -->
+        <button id="brk_main_btn_next" text-center ion-button large class="breakroom--button-default helix--submit submit" type="submit"
+          [disabled]="!profileForm.valid"> {{nextButtonText}}
+        </button>
+        <!--Cancel button -->
+        <button text-center ion-button outline large type="button" class="page-edit-profile-champix--cancel helix--submit" (click)="onCancelTap()">
+          {{cancelButtonText}}
+        </button>
+      </form>
+    </div>
+  </ion-list>
+</ion-content>

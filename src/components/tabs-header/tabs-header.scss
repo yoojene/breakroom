@@ -1,0 +1,30 @@
+tabs-header {
+
+  .breakroom-tabs-header > .toolbar > .toolbar-content-ios > .title-ios > .toolbar-title-ios {
+     padding-top: 22px;
+  }
+
+  .header-settings-icon {
+    background:(url('../assets/imgs/avatar_spaceman.svg'));
+    background-repeat:no-repeat;
+    background-size: contain;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .notifications-header-icon {
+    background:(url('../assets/imgs/icon_notification.svg'));
+    background-repeat:no-repeat;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .no-notifications-header-icon {
+    background:(url('../assets/imgs/icon_notification-without-red.svg'));
+    background-repeat:no-repeat;
+    width: 4rem;
+    height: 4rem;
+  }
+
+}
+

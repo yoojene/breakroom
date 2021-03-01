@@ -1,0 +1,19 @@
+page-content-detail {
+
+ ol{
+    list-style: decimal;
+  }
+
+  ul {
+    list-style: circle;
+  }
+
+  .content-body{
+    margin-bottom: 70px;
+  }
+  .page-content-detail {
+    &--headline {
+      margin-top: 1rem;
+    }
+  }
+}

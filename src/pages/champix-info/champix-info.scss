@@ -1,0 +1,138 @@
+page-champix-info {
+   ion-content {
+    top: 4rem;
+  }
+
+  ol li{
+    font-weight:bold;
+    }
+ p {
+    font-weight:normal;
+    }
+  h1{
+    color: color($colors, dullyellowgreen);
+  }
+  h2{
+    color: color($colors, mediumcyan);
+    font-size: 24px;
+  }
+  h3{
+    color: color($colors, mediumcyan);
+    font-size: 18px;
+  }
+  h4{
+    color: color($colors, mediumcyan);
+    font-size: 16px;
+  }
+  h5{
+    color: color($colors, mediumcyan);
+    font-size: 13px;
+  }
+
+  ol .champix-info-references-list:nth-child(1) {
+    text-decoration: underline;
+  }
+  ol .champix-info-references-list:nth-child(2) {
+    text-decoration: underline;
+  }
+  ol .champix-info-references-list:nth-child(3) {
+    text-decoration: underline;
+  }
+  ol .champix-info-references-list:nth-child(4) {
+    text-decoration: underline;
+  }
+  ol .champix-info-references-list:nth-child(5) {
+    text-decoration: underline;
+  }
+  ol .champix-info-references-list:nth-child(6) {
+    text-decoration: underline;
+  }
+  ol .champix-info-references-list:nth-child(7) {
+    text-decoration: underline;
+  }
+  ol .champix-info-references-list:nth-child(8) {
+    text-decoration: underline;
+  }
+}
+
+.segment-ios .segment-button.segment-activated {
+    color: color($colors, dullyellowgreen);
+    border-bottom: 2px solid #94c34a !important;
+    background-color: white;
+}
+.ion-segment{
+    background-color: white;
+    color: #94c34a;
+}
+
+.champix-info-dosage{
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+
+.segment-ios .segment-button {
+    border: none;
+    border-bottom: 1px solid #a8a7a7;
+    line-height: 1.2rem !important;
+    white-space: normal;
+    height: 40px;
+    border-radius: 0 !important;
+    color: color($colors, brgrey);
+    font-size: 13px;
+    background-color: white;
+    padding-top: 4px;
+}
+
+.bold-blue{
+    font-weight: bold;
+    color: #4bc4ce;
+}
+
+.tip{
+    background: whitesmoke;
+}
+
+.tip-header{
+    float: left;
+    margin-right: 10px;
+    color: #94c34a;
+    background: whitesmoke;
+    padding-top: 5px;
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+.tip-body{
+    background: whitesmoke;
+    margin-left: 30px;
+    /* margin-top: 15px; */
+    /* margin-bottom: 5px; */
+    /* float: right; */
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.champix-info-side-effects p:nth-child(1), .champix-info-journey p:nth-child(1), .champix-info-references p:nth-child(1) {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+.champix-info-side-effects{
+    margin-bottom: 10px;
+}
+
+.champix-info-side-effects-body {
+    margin-bottom: 70px;
+}
+
+.champix-info-journey-body{
+    margin-bottom: 70px;
+}
+
+.champix-info-side-effects-body ul {
+    list-style: unset;
+}
+
+.champix-info-references ol{
+    list-style: decimal;
+}

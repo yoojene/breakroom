@@ -1,0 +1,77 @@
+
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+require 'xcodeproj'
+fastlane_version "2.70.0"
+
+default_platform :android
+project = "Breakroom"
+project_filename = "#{project}.xcodeproj"
+
+def fix_project(path)
+  ENV['FL_UNLOCK_KEYCHAIN_PATH'] = 'ios-build.keychain'
+  ENV["FASTLANE_XCODE_LIST_TIMEOUT"] = "120"
+
+  xcversion(version: "10.2.1")
+
+  upgrade_super_old_xcode_project(
+    path: path,
+    team_id: '3EAJZ2TE26'
+  )
+  disable_automatic_code_signing(path: path)
+  xcproj = Xcodeproj::Project.open("." + path)
+  xcproj.recreate_user_schemes
+  xcproj.save
+end
+
+def run_gym(path, name, profile_id, profiles)
+  gym(xcargs: "CODE_SIGN_STYLE=\"Manual\" PROVISIONING_PROFILE=\"#{profile_id}\"", project: path, scheme: name, output_directory: "./build", export_method: "enterprise", codesigning_identity: "iPhone Distribution: pharma International Inc", configuration: "Release", export_options: {method: 'enterprise', provisioningProfiles: profiles} )
+end
+
+platform :ios do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+  end
+
+  desc "Generates an incremental build using the pharma global cert."
+  lane :test do
+    lane_path = "./platforms/ios/#{project_filename}"
+    fix_project(lane_path)
+    run_gym(lane_path, project, 'XXXXX', {"com.pharmainternational.au.breakroom" => 'BreakroomAUDistribution'})
+  end
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used. No personal data is recorded.
+# Learn more at https://github.com/fastlane/fastlane#metrics

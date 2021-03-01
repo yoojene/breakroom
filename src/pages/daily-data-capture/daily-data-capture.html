@@ -1,0 +1,31 @@
+<ion-header *ngIf="!fromDashBoard">
+    <ion-navbar hideBackButton="true">
+        <ion-title>{{title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<tabs-header *ngIf="fromDashBoard" [hasNotification]="hasNotification" hideBackButton="true" [headerTitle]="title"></tabs-header>
+
+
+<ion-content>
+    <div class="vertical-gap"></div>
+    <h2 ion-text text-center text-wrap color="turquiose">{{smokeToday}}</h2>
+
+    <div class="horizontal-wrap" float-center>
+        <button class="round-button-avatar"></button>
+    </div>
+
+    <div class="horizontal-wrap button-group" float-center>
+        <br />
+        <button ion-button (click)="onYesTap()" class="round-button-circle">{{yes}}</button>
+        <div class="horizontal-gap"></div>
+        <button ion-button (click)="onNoTap()" class="round-button-circle">{{no}}</button>
+    </div>
+    <br />
+      <button text-center
+      ion-button
+      outline
+      large class="skip"
+       (click)="onSkipTap()">{{skip}}
+      </button>
+</ion-content>

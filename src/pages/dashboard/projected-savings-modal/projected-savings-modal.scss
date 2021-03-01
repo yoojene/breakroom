@@ -1,0 +1,48 @@
+projected-savings-modal {
+  .projected-alert-container  {
+  display: block;
+  background: white;
+  height: 80% !important;
+  width: 66%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15% !important;
+  border-radius: 2.5%;
+  position: relative;
+}
+
+
+.projected-alert-header {
+  background:(url('../assets/imgs/icon-green-DollarSign.svg'));
+  height: 100px;
+  width: 100px;
+    margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+
+}
+
+.projected-alert-title {
+  color: color($colors, dullyellowgreen);
+}
+
+.projected-alert-text {
+  overflow: auto;
+  height: calc(100% - 189px);
+  padding-bottom: 100px;
+}
+.projected-alert-button {
+  color: color($colors, dullyellowgreen);
+  border-color: color($colors, dullyellowgreen);
+  position: absolute;
+  bottom: 0;
+  border-bottom: none;
+  background: white;
+}
+
+.button-outline-ios.activated {
+    color: color($colors, dullyellowgreen);
+    background-color: transparent;
+}
+
+}

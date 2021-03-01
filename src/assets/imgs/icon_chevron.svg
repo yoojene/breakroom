@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 30 0 30 29.9995 0 29.9995"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-/-Form-/-Chevron">
+            <g id="Group-20-Copy">
+                <g id="Group-3">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M15,0.6345 C7.079,0.6345 0.635,7.0785 0.635,14.9995 C0.635,22.9205 7.079,29.3655 15,29.3655 C22.921,29.3655 29.365,22.9205 29.365,14.9995 C29.365,7.0785 22.921,0.6345 15,0.6345 M15,29.9995 C6.729,29.9995 0,23.2715 0,14.9995 C0,6.7295 6.729,-0.0005 15,-0.0005 C23.271,-0.0005 30,6.7295 30,14.9995 C30,23.2715 23.271,29.9995 15,29.9995" id="Fill-1" fill="#A8A7A7" mask="url(#mask-2)"></path>
+                </g>
+                <polyline id="Stroke-4" stroke="#A8A7A7" stroke-linecap="round" stroke-linejoin="round" points="7 12 15.5 18 24 12"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

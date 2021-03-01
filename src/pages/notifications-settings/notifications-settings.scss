@@ -1,0 +1,13 @@
+page-notifications-settings{
+  .scroll-content{
+    width: 94%;
+    margin-left: 3%;
+  }
+
+  .item{
+    border-bottom: 0.55px  solid #c8c7cc !important;   
+  }
+  .toggle-ios.toggle-checked .toggle-icon {
+    background-color: color($colors,darklimegreen);
+  }
+}

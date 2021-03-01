@@ -1,0 +1,63 @@
+page-create-account-activation {
+  .page-create-account-activation {
+    &--main-text {
+      h1 {
+        font-weight: bold;
+      }
+      h2 {
+        font-family: "Panton-Semi-Bold", sans-serif;
+      }
+      color: color($colors, turquiose);
+      text-align: center;
+      width: 280px;
+      height: 157px;
+      margin-left: auto;
+      margin-right: auto;
+      p {
+        color: black;
+      }
+    }
+
+    &--champix-bar-code {
+      // background:(url('../assets/imgs/champix_barcode.png'));
+      width: 228px;
+      height: 110px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 70px;
+    }
+
+    pharma-activation-code .helix--button:hover {
+      background: #94c34a !important;
+    }
+    pharma-activation-code .helix--button {
+      font-size: 2rem;
+    }
+    pharma-activation-code .code {
+      background-image: url("../assets/imgs/icon_pencil.svg");
+    }
+
+    pharma-activation-code .helix--input {
+      border-color: color($colors, brgrey);
+      font-size: 14px;
+      background-position: 95%, 10px;
+      padding-left: 15px;
+      border-radius: 5px;
+    }
+
+    @media only screen and (max-width: 320px) {
+      pharma-activation-code .helix--input {
+        font-size: 11px !important;
+      }
+    }
+
+    .error {
+      color: color($colors, danger);
+      margin-top: -20px;
+    }
+
+    ::placeholder {
+      color: color($colors, brgrey);
+    }
+  }
+}

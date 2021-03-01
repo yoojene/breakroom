@@ -1,0 +1,76 @@
+page-newsfeed {
+
+.loading-page{
+    width: 100%;
+    height: 10%;
+    margin-top: 50%;
+}
+  ion-content {
+    top: 4rem;
+  }
+  .item{
+    border-bottom: solid 0.45px #c8c7cc !important;
+  }
+    .page-newsfeed {
+        &--settings {
+            background:(url('../assets/imgs/avatar_spaceman.svg'));
+            width: 4rem;
+            height: 4rem;
+        }
+        &--icon-wrap{
+            text-align: center;
+            border-bottom: 1px solid color($colors, brgrey);
+        }
+        &--newsfeed-time{
+            float: right;
+            margin-top: 2rem;
+        }
+        &--profile{
+            float: left;
+        }
+        &--profile{
+            ion-avatar {
+                    float: left
+                }
+        }
+        &--profile h6{
+            float: left;
+            margin-top: 2rem;
+        }
+        &--newsfeed-like-achievement {
+            background:(url('../assets/imgs/like.svg')) no-repeat;
+            width: 50px;
+            height: 50px;
+            display:inline-block;
+        }
+        &--newsfeed-item {
+            height: 265px;
+        }
+        &--newsfeed-row {
+             width:100%;
+             text-align: center;
+             .last-achievement--text{
+                white-space: normal;
+             }
+        }
+        &--newsfeed-row-last {
+
+            border-bottom: 1px solid color($colors, brgrey);
+        }
+        &--username {
+            padding: 10px;
+            font-size: 15px;
+        }
+        &--newsfeed-time{
+            color: color($colors, brgrey);
+            font-size: 1.2rem;
+        }
+        &--newsfeed-highfive-achievement {
+            background:(url('../assets/imgs/highfive.svg')) no-repeat;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+
+        }
+    }
+}

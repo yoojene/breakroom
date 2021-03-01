@@ -1,0 +1,31 @@
+last-achievement {
+  .last-achievement {
+
+    &--subheader  {
+      h1 {
+        margin-top: 20px;
+        color: color($colors, turquiose);
+        font-family: 'Panton-Semi-Bold', sans-serif;
+      }
+    }
+    &--text  {
+      h1 {
+        color: color($colors, turquiose);
+      }
+      color: gray;
+      font-size: 1.6rem;
+      font-family: sans-serif;
+      
+    }
+
+    &--image {
+      // background-image: url('../assets/imgs/achievement-1-day-smoke-free.svg');
+      background-size: cover;
+      width: 100px;
+      height: 100px;
+      margin-left:auto;
+      margin-right: auto;
+
+    }
+  }
+}

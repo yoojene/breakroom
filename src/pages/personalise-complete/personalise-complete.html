@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{personalCompleteHeader}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="page-personalise-complete" padding>
+
+  <!-- Last Achievement -->
+  <last-achievement
+  [animOptions]="userStore.user.latestUnlockedAchievement.lottieConfig"
+  [achievementBodyText]="userStore.user.latestUnlockedAchievement.body"
+  [achievementTitle]="userStore.user.latestUnlockedAchievement.title"
+  [width]=350
+  [height]=350
+  [showAnimation]="true"
+  [showImage]="false"
+  [showSpinner]="showSpinner"
+  [showHeader]="false"
+  [showCelebrate]="!userStore.user.latestUnlockedAchievement.celebrated"
+  [showAchievementText]="true"
+  [showAchievementTitle]="true"
+  (celebrateAchievement)="onCelebrateAchievementTap($event)">
+  </last-achievement>
+
+  <!-- Like & High 5 buttons -->
+  <reaction
+    *ngIf="userStore.user.latestUnlockedAchievement.celebrated"
+    [achievement]="userStore.user.latestUnlockedAchievement"
+    [isLatestAchievement]="true"
+    [showLike]="true"
+    [showHighFive]="true">
+  </reaction>
+
+  <p
+  style="margin-top: 25px"
+  ion-text
+  text-wrap
+  text-center>
+  <a (click)="onDoneTap()">{{skip}}</a>
+</p>
+
+</ion-content>

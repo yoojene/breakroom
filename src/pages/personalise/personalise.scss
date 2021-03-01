@@ -1,0 +1,124 @@
+  page-personalise {
+    
+  .alert-md .alert-radio-label{
+    white-space: pre-line;
+  }
+    
+  .alert-wp .alert-radio-label{
+    white-space: pre-line;
+  }
+    
+  div.swiper-pagination {
+    top: 4px;
+    bottom: inherit;
+    visibility: visible !important;
+  }
+  .item{
+    background-color: transparent;
+  }
+
+  .item-select {
+    background-position: 80% 25px;
+  }
+
+  ion-slides {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .button-ios-light{
+    background-color: transparent;
+  }
+  ion-select{
+    padding-left: 10%;
+    padding-right: 10%;
+    max-width: 80%;
+    margin-left: 8%;
+  }
+  .error {
+    color: color($colors, danger);
+    font-size: 14px;
+  }
+  .quit-error {
+    color: color($colors, danger);
+    margin-top: 0rem;
+    font-size: 14px;
+  }
+  .select-icon{
+    top: 0.8rem;
+    margin-right: 10px;
+  }
+  label {
+    padding-left: 12%;
+  }
+  .select-text {
+    white-space: pre-line !important;
+    width: 100%;
+    max-width: 100% !important;
+    text-align: left;
+    margin: auto;
+    font-size: 1.6rem;
+  }
+  .review{
+    color: color($colors, dullyellowgreen);
+    padding-left: 5%;
+    padding-top: 5%;
+  }
+  .swiper-pagination {
+    z-index: 0;
+  }
+  .helix--input {
+    margin-top:2.5%;
+    width: 100%;
+    background-color: transparent;
+  }
+  label.helix--label {
+    color: map-get($colors, brdarkgrey);
+    text-align: left;
+    padding-right: 10%;
+    margin: 20px 0 0 0;
+  }
+
+  .item-ios.item-block .item-inner{
+    border-bottom: 0;
+  }
+  
+  .swiper-pagination-bullet {
+    height: 1.8em;
+    width: 1.8em;
+  }
+  .swiper-pagination-bullet-active {
+    background: map-get($colors, turquiose);
+  }
+
+  .round-slide-icon{
+    &-one{
+      width: 76px;
+      height: 80px;
+      padding:5px;
+      margin-top: 15px;
+      background: (url("../assets/imgs/personal-one.svg") no-repeat);
+    }
+    &-two{
+      width: 76px;
+      height: 80px;
+      padding:5px;
+      margin-top: 15px;
+      background: (url("../assets/imgs/personal-two.svg") no-repeat);
+    }
+    &-three{
+      width: 76px;
+      height: 80px;
+      padding:5px;
+      margin-top: 15px;
+      background: (url("../assets/imgs/personal-three.svg") no-repeat);
+    }
+    &-four{
+      width: 76px;
+      height: 80px;
+      padding:5px;
+      margin-top: 15px;
+      background: (url("../assets/imgs/personal-four.svg") no-repeat);
+    } 
+  }
+}

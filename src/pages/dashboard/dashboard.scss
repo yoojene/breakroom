@@ -1,0 +1,163 @@
+page-dashboard {
+
+  ion-spinner {
+    * {
+      stroke: white;
+    }
+
+    &.spinner-circles circle,
+    &.spinner-bubbles circle,
+    &.spinner-dots circle {
+      fill: white;
+    }
+  }
+
+  .div-boder{
+    border-bottom: solid 0.45px #c8c7cc !important;
+  }
+  
+  .dashboard {
+
+    &--day-circle-container {
+      padding-top: 50px
+    }
+
+    &--day-circle {
+      display: inline-block;
+      border-radius: 75%;
+      border: solid 3px color($colors, brgrey);
+      height: 18rem;
+      width: 18rem;
+      padding-top: 3rem;
+    }
+    &--day-text {
+      color: color($colors, brgrey);
+      font-family: 'Panton-SemiBold', sans-serif;
+      font-size: 42px;
+    }
+    &--day {
+      color: color($colors, brgrey);
+      font-family: 'Panton-Bold', sans-serif;
+      font-size: 65px;
+    }
+
+    &--remaining-days-container {
+        padding-top: 1rem;
+      }
+    &--remaining-days {
+      color: color($colors, darklimegreen);
+      font-family: 'Panton-Bold', sans-serif;
+      font-size: 40px
+  }
+
+
+  &--total-savings {
+    font-family: 'Panton-Bold', sans-serif;
+      font-size: 55px;
+  }
+  &--saved-text {
+    font-family: 'Panton-Semi-Bold', sans-serif;
+      font-size: 28px;
+  }
+
+
+}
+
+
+  ion-content {
+    top: 4rem;
+  }
+
+  .large-label{
+    padding-left: 0px;
+    font-size: 3.7rem;
+  }
+
+  .large-label-title{
+    padding-left: 0px;
+  }
+
+  .helix--submit {
+    width: 90%;
+    margin-bottom: 2.7rem;
+  }
+  .headto-newsfeed{
+    margin-top: initial;
+  }
+  .cents {
+    font-size: 2.7rem;
+    position: relative;
+    bottom: 0.55rem;
+    margin-left: -8px;
+  }
+  .my-goals-container{
+    padding-top:2rem;
+  }
+  .my-goal-icon {
+    width: 8rem;
+    height: 8rem;
+    display: inline-block;
+  }
+  .goals-container{
+    display: inline-block;
+    margin: 0 0.625rem;
+  }
+  .community{
+    display: inline-block;
+    .community-stats{
+      float: left;
+      margin: 0 0.625rem;
+      .community-count{
+        width: 8rem;
+        height: 8rem;
+        display: block;
+        color: white;
+        padding: 3rem 0;
+        font-size: 2.25rem;
+        border-radius: 100%;
+        background: gray;
+      }
+      .community-text{
+        width: 8.5rem;
+        font-size: 12px;
+      }
+    }
+  }
+  .page-dashboard {
+
+     &--button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: color($colors, lightred);
+    }
+
+    &--button.activated{
+        background-color: color($colors, lightorange);
+    }
+
+
+
+
+  }
+$animationDuration : 1500ms;
+
+  .fade-in {
+
+        opacity:0;  /* make things invisible upon start */
+        animation: fadeIn ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+        animation-fill-mode: forwards; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+        animation-duration: $animationDuration;
+
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+}

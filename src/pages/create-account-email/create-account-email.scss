@@ -1,0 +1,70 @@
+page-create-account-email {
+
+  .div-terms-body{
+    float: right;
+    width: 90%;
+    text-align: -webkit-left;
+  }
+
+  .page-create-account-email {
+
+      h3:first-child {
+        margin-top: 0rem;
+      }
+      &--main-text {
+         padding-left: 10%;
+         margin-right: 10%;
+      }
+      &--main-text h3 {
+        color: color($colors, turquiose);
+
+      }
+
+       &--error {
+        color: color($colors, danger);
+        margin-top: -2rem;
+      }
+       &--form-error {
+        color: color($colors, danger);
+        margin-top: 1rem;
+      }
+
+       &--terms-text {
+        padding: 0 10%;
+         b {
+          color: color($colors, turquiose);
+         }
+       }
+       .checkbox-icon {
+         border-radius: 0;
+       }
+
+       button.helix--button.helix--submit.create-account-button{
+         border-radius: 3.5rem;
+         background-color: transparent;
+         border: 2px solid color($colors, brdarkgrey);
+         color: color($colors, brdarkgrey)
+       }
+
+       button.helix--button.helix--submit.create-account-button.activated{
+         background-color: color($colors, brdarkgrey);
+         color: white;
+       }
+
+      .create-account {
+        top: 20px;
+      }
+
+      .email {
+        text-transform: lowercase;
+      }
+      ::placeholder { /* Recent browsers */
+         text-transform: none;
+      }
+
+
+  }
+
+
+
+}

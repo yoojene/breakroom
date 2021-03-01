@@ -1,0 +1,75 @@
+<!--
+  Generated template for the CreateAccountEmailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{createAccountTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="page-create-account-email" padding>
+
+  <div class="page-create-account-email--main-text" text-center [innerHTML]="this.createAccountBodyText">
+  </div>
+  <ion-list>
+    <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+      <div text-center>
+        <!-- Email -->
+        <label class="helix--label">
+          <input class="helix--input icon keys email"
+          type="email"
+          [ngStyle]="{'background-image' : emailForm.controls['email'].value ? 'none' : ''}"
+          formControlName="email" name="" [placeholder]="emailPlacehold"
+          (keydown)="onChangeEmail()" />
+
+        </label>
+        <div class="page-create-account-email--error" *ngIf="emailForm.controls['email'].errors?.required && emailForm.controls['email'].touched">{{emailErrReq}}</div>
+        <div class="page-create-account-email--error" *ngIf="!emailForm.controls['email'].errors?.required && emailForm.controls['email'].errors?.pattern && emailForm.controls['email'].touched">{{emailErrInvalid}}</div>
+        <div class="page-create-account-email--error" *ngIf="formError">{{emailErrAlreadyRegistered}}</div>
+        <!-- Password -->
+        <label class="helix--label">
+          <input class="helix--input icon keys" [ngStyle]="{'background-image' : emailForm.controls['password'].value ? 'none' : ''}" type="password" formControlName="password" name="" [placeholder]="passwordPlaceh" />
+        </label>
+        <div class="page-create-account-email--error" *ngIf="emailForm.controls['password'].errors?.required && emailForm.controls['password'].touched">{{passwordErrReq}}</div>
+        <div class="page-create-account-email--error" *ngIf="(emailForm.controls['password'].errors?.minlength || emailForm.controls['password'].errors?.pattern) && emailForm.controls['password'].touched">{{passwordErrInvalid}}</div>
+        <!-- Confirm Password -->
+        <label class="helix--label">
+          <input class="helix--input icon keys" [ngStyle]="{'background-image' : emailForm.controls['confPassword'].value ? 'none' : ''}" type="password" formControlName="confPassword" name="" [placeholder]="confPasswordPlaceh" />
+        </label>
+        <div class="page-create-account-email--error" *ngIf="emailForm.controls['confPassword'].errors?.required && emailForm.controls['confPassword'].touched">{{confPasswordErrReq}}</div>
+        <div class="page-create-account-email--error" *ngIf="(emailForm.controls['confPassword'].errors?.minlength || emailForm.controls['confPassword'].errors?.pattern) && emailForm.controls['confPassword'].touched && !emailForm.controls['confPassword'].errors?.required">{{confPasswordErrInvalid}}</div>
+        <div class="page-create-account-email--error" *ngIf="emailForm.controls['confPassword'].touched && !!emailForm.errors?.mismatch  && !emailForm.controls['confPassword'].errors?.required && !(emailForm.controls['confPassword'].errors?.minlength || emailForm.controls['confPassword'].errors?.pattern)">{{confPasswordErrMismatch}}</div>
+
+          <div class="page-create-account-email--terms-text" >
+            <!--T&Cs Confirm-->
+          <span style="width: 8%;" float-left>
+              <ion-checkbox formControlName="accTCs"></ion-checkbox>
+          </span >
+          <div class="div-terms-body">
+            <span [innerHTML]="termsBody"></span>
+            <span (click)="termsOfUse()"  [innerHTML]="termsName"></span>
+            <span (click)="privacyPolicy()"  [innerHTML]="privacyName"></span>
+            <span [innerHTML]="privacyRelated"></span>
+          </div>
+          </div>
+          <!-- NEXT button -->
+        <button
+          text-center
+          ion-button
+          large
+          class="breakroom--button-default helix--submit submit create-account"
+          type="submit"
+          [disabled]="!emailForm.valid"
+          > {{nextButtonText}}
+      </button>
+      </div>
+    </form>
+  </ion-list>
+
+</ion-content>

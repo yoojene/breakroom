@@ -1,0 +1,57 @@
+
+<tabs-header [hasNotification]="hasNotification" [headerTitle]="contentTitle"></tabs-header>
+
+<ion-content class="page-content" padding>
+    <ion-segment [(ngModel)]="selectedSegment" style="background: white; margin-top:2rem" ion-fixed  padding>
+      <ion-segment-button [value]="lifestyleText">
+        {{lifestyleText}}
+      </ion-segment-button>
+      <ion-segment-button [value]="quitTipsText">
+        {{quitTipsText}}
+      </ion-segment-button>
+      <ion-segment-button [value]="educationText">
+        {{educationText}}
+      </ion-segment-button>
+    </ion-segment>
+
+  <div style="margin-top: 80px">
+    <div text-center>
+      <ion-spinner *ngIf="isLoadingContent" item-start name="ios"></ion-spinner>
+    </div>
+    <div *ngIf="!isLoadingContent">
+    <div  [ngSwitch]="selectedSegment" *ngFor="let content of contentAssets" >
+      <div *ngSwitchCase="content.attributes.sub_tab_title.title">
+        <ion-list>
+        <ion-card>
+          <img [src]="content.attributes.header_image.value" (click)="onContentCardTap(content)">
+          <ion-grid>
+            <ion-row (click)="onContentCardTap(content)">
+              <ion-col col-10>
+                  <h3 class="page-content--headline" [innerHTML]="content.attributes.headline"> </h3>
+              </ion-col>
+              <ion-col col-2>
+                  <span float-right>{{content.sharedTime}} </span>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <reaction
+                [isLatestAchievement]="false"
+                [isOnContent]="true"
+                [contentId]="content.id"
+                [showLike]="true">
+                </reaction>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-list>
+      </div>
+    </div>
+
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+</ion-content>

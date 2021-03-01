@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{createAccountTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="page-create-account-activation" padding>
+  <div class="page-create-account-activation--main-text"
+      [innerHTML]="this.createAccountBodyText">
+  </div>
+  <div class="page-create-account-activation--champix-bar-code">
+    <img src="assets/imgs/champix_barcode.png">
+  </div>
+
+  <br>
+  <pharma-activation-code #activation
+    [type]="this.inputType"
+    [placeholder]="this.inputPlaceholder"
+    [showSubmitButton]="true"
+    [submitText]="this.nextButtonText"
+    [submitDisabled]="this.submitDisabled"
+    [showError]="this.error"
+    (codeSubmitted)="onCodeSubmit($event)"
+    (handleInputChange)="onInputChanged($event)">
+
+    <div class="error" slot="error-message"> {{errorText}} </div>
+    <ion-label class="input-error" style="text-align: center;" text-wrap *ngIf="isIncorrectNetworkError">{{ invalidaNetwork }}</ion-label>
+  
+  </pharma-activation-code>
+       
+</ion-content>

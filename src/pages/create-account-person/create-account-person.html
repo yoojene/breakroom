@@ -1,0 +1,101 @@
+<!--
+  Generated template for the CreateAccountPersonPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{createAccountTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="page-create-account-person" padding>
+
+  <ion-list>
+  <div class="page-create-account-person--main-text" [innerHTML]="this.createAccountBodyText">
+  
+  </div>
+  <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+      <div text-center>
+        <!-- First Name -->
+      <label class="helix--label">
+        <input class="helix--input icon keys" [ngStyle]="{'background-image' : personForm.controls['firstName'].value ? 'none' : ''}" formControlName="firstName" name="firstName" placeholder="First Name"/>
+      </label>
+      <div class="page-create-account-person--error"
+          *ngIf="personForm.controls['firstName'].errors?.required && personForm.controls['firstName'].touched"
+          >{{firstNameErrReq}}</div>
+      <div class="page-create-account-person--error"
+          *ngIf="(personForm.controls['firstName'].errors?.maxlength || personForm.controls['firstName'].errors?.minlength || personForm.controls['firstName'].errors?.blacklistWords || personForm.controls['firstName'].errors?.pattern) && personForm.controls['firstName'].dirty"
+          >{{firstNameErrInvalid}}</div>
+      <!-- Last Name -->
+      <label class="helix--label">
+        <input class="helix--input icon keys" [ngStyle]="{'background-image' : personForm.controls['lastName'].value ? 'none' : ''}" formControlName="lastName" name="lastName" placeholder="Last Name" />
+      </label>
+      <div class="page-create-account-person--error"
+           *ngIf="personForm.controls['lastName'].errors?.required && personForm.controls['lastName'].touched"
+           >{{lastNameErrReq}}</div>
+      <div class="page-create-account-person--error"
+           *ngIf="(personForm.controls['lastName'].errors?.maxlength || personForm.controls['lastName'].errors?.minlength || personForm.controls['lastName'].errors?.blacklistWords || personForm.controls['lastName'].errors?.pattern) && personForm.controls['lastName'].dirty"
+           >{{lastNameErrInvalid}}</div>
+      <!-- Date of Birth -->
+      <ion-item class="helix--label page-create-account-person--item">
+      <ion-label class="input" *ngIf="!personForm.controls['dateOfBirth'].value">{{dateOfBirthText}}</ion-label>
+        <ion-datetime formControlName="dateOfBirth" displayFormat="D MMM YYYY" [max]="maxDate"></ion-datetime>
+      </ion-item>
+      <div class="page-create-account-person--error" *ngIf="personForm.controls['dateOfBirth'].errors?.required && personForm.controls['dateOfBirth'].touched">{{dobErrReq}}</div>
+      <!-- Gender -->
+      <ion-item class="helix--label page-create-account-person--item">
+         <ion-label class="input" *ngIf="!personForm.controls['gender'].value">{{genderText}}
+        </ion-label>
+        <ion-select #gender formControlName="gender">
+          <ion-option *ngFor="let gen of genders" [value]="gen.gender">
+            {{gen.gender}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+      <div class="page-create-account-person--error" *ngIf="personForm.controls['gender'].errors?.required && personForm.controls['gender'].touched">{{genderErrReq}}</div>
+
+      <!-- Post Code -->
+       <label class="helix--label">
+        <input class="helix--input icon keys postcode-input"
+              [ngStyle]="{'background-image' : personForm.controls['postCode'].value ? 'none' : '', 'border-bottom': postcodes && postcodes.length > 0 ? 'none' : ''}"
+              formControlName="postCode"
+              name="postCode"
+              maxlength="4"
+              type="number"
+              placeholder="{{postCodePlaceholder}}"
+              (keyup)="shouldCheckPostCode($event)"
+              />
+          <ul>
+            <li class="page-create-account-person--postcodes" *ngFor="let post of postcodes"
+             (click)="onPostCodeLookupTap(post.pcode)">{{post.pcode}} {{post.location}}</li>
+          </ul>
+      </label>
+
+      <div class="page-create-account-person--error postcode-error" 
+      *ngIf="personForm.controls['postCode'].errors?.required && personForm.controls['postCode'].touched">
+      {{postCodeErrReq}}</div>
+      <div class="page-create-account-person--error postcode-error" 
+      *ngIf="personForm.controls['postCode'].errors?.max && personForm.controls['postCode'].touched">
+      {{postCodeErrInvalid}}1</div>
+      <div class="page-create-account-person--error postcode-error" 
+      *ngIf="personForm.controls['postCode'].errors?.pattern && personForm.controls['postCode'].touched && finishedCheckPostCode">
+      {{postCodeErrInvalid}}</div>
+      <div class="page-create-account-person--review" [innerHTML]="reviewMessage"></div>
+      <!-- NEXT button -->
+      <button
+        text-center
+        ion-button
+        large
+        class="breakroom--button-default helix--submit submit"
+        type="submit"
+        [disabled]="!personForm.valid"> {{nextButtonText}}</button>
+    </div>
+   </form>
+  </ion-list>
+
+</ion-content>

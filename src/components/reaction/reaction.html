@@ -1,0 +1,20 @@
+<div class="reaction">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <div class="reaction--like" *ngIf="showLike" (click)="onLikeTap()">
+             </div>
+            <span class="reaction--like-count"> {{likeCount}}
+              <label class="reaction--liked" *ngIf="alreadyLiked"> Liked! </label>
+            </span>
+          <div class="reaction--highfive" *ngIf="showHighFive" (click)="onHighFiveTap()">
+          </div>
+            <span class="reaction--like-count">  {{highFiveCount}}
+            <label
+              class="reaction--liked"
+              *ngIf="alreadyHighFived"> High Fived! </label>
+             </span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</div>

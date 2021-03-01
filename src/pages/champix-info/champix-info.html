@@ -1,0 +1,52 @@
+<tabs-header [hasNotification]="hasNotification" [headerTitle]="champixInfoTitle"></tabs-header>
+
+<ion-content padding>
+  <ion-segment [(ngModel)]="selectedSegment" style="background: white; margin-top:2rem" ion-fixed padding>
+    <ion-segment-button value="dosage">
+      {{dosage}}
+    </ion-segment-button>
+    <ion-segment-button value="sideEffects" >
+      {{sideEffects}}
+    </ion-segment-button>
+    <ion-segment-button value="champixJourney">
+      {{champixJourney}}
+    </ion-segment-button>
+    <ion-segment-button value="references">
+      {{references}}
+    </ion-segment-button>
+  </ion-segment>
+  <div style="margin-top: 80px">
+  <div text-center>
+    <ion-spinner *ngIf="isLoadingContent" item-start name="ios"></ion-spinner>
+  </div>
+  <div *ngIf="!isLoadingContent">
+    <div *ngIf="!isLoadingContent" [ngSwitch]="selectedSegment">
+      <div *ngSwitchCase="'dosage'">
+      <h1 [innerHTML]="dosageInfo.name"></h1>
+      <img [src]="champixInfoImage" imageViewer>
+      <div class="champix-info-dosage" [innerHTML]="dosageInfoBody"></div>
+      </div>
+      <div *ngSwitchCase="'sideEffects'">
+          <h1 [innerHTML]="sideEffectInfo.name"></h1>
+          <div class="champix-info-side-effects-body" [innerHTML]="sideEffectInfoBody"></div>
+      </div>
+      <div class="champix-info-journey" *ngSwitchCase="'champixJourney'">
+          <h1 [innerHTML]="champixJourneyInfo.name"></h1>
+          <div class="champix-info-journey-body" [innerHTML]="champixJourneyInfoBody"></div>
+        </div>
+      <div class="champix-info-references" *ngSwitchCase="'references'">
+        <h1 [innerHTML]="referencesInfo.name"></h1>
+        <ol style="padding-left: 15px;">
+          <div class="champix-info-references-list" *ngFor="let ref of referencesInfoBody; let i = index">
+            <li>
+              <div (click)="doOpenReference(ref, i)" [innerHTML]="ref.body"></div>
+            </li>
+          </div>
+        </ol>
+        <br><br><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+</ion-content>

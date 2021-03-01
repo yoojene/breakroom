@@ -1,0 +1,48 @@
+<div class="last-achievement">
+
+  <div *ngIf="showHeader" text-center class="last-achievement--subheader" [innerHTML]="lastAchievementHeader"></div>
+
+  <!-- Achievement animation -->
+   <lottie-animation-view *ngIf="showAnimation"
+    [options]="lottieOptions"
+    [height]="height"
+    (animCreated)="handleAnimation($event)"
+    >
+  </lottie-animation-view>
+  <!-- Achievement image -->
+
+  <div text-center *ngIf="showImage"
+    class="last-achievement--image"
+    [ngStyle]="{'background-image': 'url( '+ achievementUrl +')'}"
+    ></div>
+
+  <!-- Achievement title-->
+  <div
+    text-center
+    *ngIf="showAchievementTitle"
+    class="last-achievement--title"
+    [innerHTML]="achievementTitle"
+    ></div>
+
+  <!-- Achievement subheader-->
+  <div
+   text-center
+   *ngIf="showAchievementText"
+   class="last-achievement--text"
+   [innerHTML]="achievementBodyText"
+   ></div>
+
+   <!-- Share with community button-->
+  <button *ngIf="showCelebrate"
+  ion-button
+  text-center
+  large
+  class="breakroom--button-default helix--submit submit"
+  (click)="onShareTap()"
+  >{{shareButtonText}}
+  </button>
+
+  <ion-spinner *ngIf="showSpinner" style="width: 100%;margin-top: 30px;" item-start name="ios"></ion-spinner>
+
+
+</div>

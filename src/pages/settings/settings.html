@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar color="turquiose">
+        <ion-title>Settings</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only>
+              <div class="notifications-header-icon"></div>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="setting-content">
+    <ion-list-header  text-capitalize>
+        <h1>{{accountText}}</h1>
+    </ion-list-header>
+    <button (click)="notifications()" ion-item no-lines>
+        <h2>{{notificationsText}}</h2>
+        <p>{{notificationsSubText}}</p>
+    </button>
+    <button (click)="editProfile()" ion-item no-lines>
+        <h2>{{editProfileText}}</h2>
+        <p>{{editProfileSubText}}</p>
+    </button>
+    <button (click)="avatar()" ion-item no-lines>
+        <ion-label>{{avatarText}}</ion-label>
+        </button>
+    <button (click)="about()" ion-item no-lines>
+        <ion-label>{{aboutText}}</ion-label>
+    </button>
+    <button (click)="termsOfUse()" ion-item no-lines>
+        <ion-label text-wrap>{{termsText}}</ion-label>
+    </button>
+    <button (click)="openPrivacyPolicy()" ion-item no-lines>
+        <ion-label text-wrap>{{privacyText}}</ion-label>
+    </button>
+    <button ion-item no-lines (click)="doLogOut()">
+        <ion-label>{{logOutText}}</ion-label>
+    </button>
+</ion-content>

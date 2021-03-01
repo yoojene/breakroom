@@ -1,0 +1,105 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{editAccountTitle}}</ion-title>
+        <ion-buttons end>
+            <button id="brk_header_btn_notifications" ion-button icon-only>
+              <div class="notifications-header-icon"></div>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content *mobxAutorun class="page-edit-profile">
+    <div padding text-center class="page-edit-profile--main-text" [innerHTML]="this.editAccountBodyText"></div>
+    <div padding-left padding-right padding-bottom text-center class="page-edit-profile--sub-text" [innerHTML]="this.editAccountBodySubText"></div>
+    <ion-list>
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <div text-center>
+
+          <!-- Username -->
+          <label class="page-edit-profile--label-header" >Username</label>
+          <label class="helix--label">
+            <input id="brk_Main_Input_email" class="helix--input icon keys"
+              disabled
+              style="background-color: #f3eeee;"
+              [ngStyle]="{'background-image' : profileForm.controls['username'].value ? 'none' : ''}"
+              formControlName="username" name="username" placeholder="Username" />
+          </label>
+          
+          <!-- Email -->
+          <label class="page-edit-profile--label-header" >Email</label>
+          <label class="helix--label">
+            <input id="brk_Main_Input_email" class="helix--input icon keys"
+              disabled
+              style="background-color: #f3eeee;"
+             [ngStyle]="{'background-image' : profileForm.controls['email'].value ? 'none' : ''}"
+              formControlName="email" name="email" placeholder="Email" />
+          </label>
+
+          <!-- First Name -->
+          <label class="page-edit-profile--label-header" >{{editFirstNameText}}</label>
+          <label class="helix--label">
+            <input id="brk_Main_Input_firstname" class="helix--input icon keys"
+             [ngStyle]="{'background-image' : profileForm.controls['firstName'].value ? 'none' : ''}"
+              formControlName="firstName" name="firstName" placeholder="First Name" />
+          </label>
+          <div class="page-edit-profile--error" *ngIf="profileForm.controls['firstName'].errors?.required && profileForm.controls['firstName'].touched">{{firstNameErrReq}}</div>
+          <div class="page-edit-profile--error" *ngIf="(profileForm.controls['firstName'].errors?.maxlength || profileForm.controls['firstName'].errors?.minlength || profileForm.controls['firstName'].errors?.blacklistWords || profileForm.controls['firstName'].errors?.pattern) && profileForm.controls['firstName'].dirty">{{firstNameErrInvalid}}</div>
+
+          <!-- Last Name -->
+          <label class="page-edit-profile--label-header">{{editLastNameText}}</label>
+          <label class="helix--label">
+            <input id="brk_Main_Input_lastname" class="helix--input icon keys" [ngStyle]="{'background-image' : profileForm.controls['lastName'].value ? 'none' : ''}"
+              formControlName="lastName" name="lastName" placeholder="Last Name" />
+          </label>
+          <div class="page-edit-profile--error" *ngIf="profileForm.controls['lastName'].errors?.required && profileForm.controls['lastName'].touched">{{lastNameErrReq}}</div>
+          <div class="page-edit-profile--error" *ngIf="(profileForm.controls['lastName'].errors?.maxlength || profileForm.controls['lastName'].errors?.minlength || profileForm.controls['lastName'].errors?.blacklistWords || profileForm.controls['lastName'].errors?.pattern) && profileForm.controls['lastName'].dirty">{{lastNameErrInvalid}}</div>
+          
+          <!-- Gender -->
+          <label class="page-edit-profile--label-header">{{editGenderText}}</label>
+          <ion-item class="helix--label page-edit-profile--item">
+            <ion-label class="input" *ngIf="!profileForm.controls['gender'].value">{{genderText}}
+            </ion-label>
+            <ion-select #gender formControlName="gender">
+              <ion-option *ngFor="let gen of genders" [value]="gen.gender">
+                {{gen.gender}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+          <div class="page-create-account-person--error" *ngIf="profileForm.controls['gender'].errors?.required && profileForm.controls['gender'].touched">{{genderErrReq}}</div>
+
+          <!-- Post Code -->
+          <label class="page-edit-profile--label-header">{{editPostCodeText}}</label>
+          <label class="helix--label">
+            <input class="helix--input icon keys postcode-input" id="brk_Main_Input_postcode" [ngStyle]="{'background-image' : profileForm.controls['postCode'].value ? 'none' : '', 'border-bottom': postcodes && postcodes.length > 0 ? 'none' : ''}"
+              formControlName="postCode" name="postCode" maxlength="4" type="number" placeholder="{{ postCodePlaceholder }}" (input)="onPostCodeEnter($event)" (focusout)="onPostCodeFocusOut($event)" />
+            <ul>
+              <li class="page-edit-profile--postcodes" *ngFor="let post of postcodes" (click)="onPostCodeLookupTap(post.pcode)">{{post.pcode}}
+                {{post.location}}</li>
+            </ul>
+          </label>
+          <div class="page-edit-profile--error postcode-error" *ngIf="profileForm.controls['postCode'].errors?.required && profileForm.controls['postCode'].touched">{{postCodeErrReq}}</div>
+          <div class="page-edit-profile--error postcode-error" *ngIf="profileForm.controls['postCode'].errors?.max && profileForm.controls['postCode'].dirty">{{postCodeErrInvalid}}</div>
+          <div class="page-edit-profile--error postcode-error" *ngIf="profileForm.controls['postCode'].errors?.pattern && profileForm.controls['postCode'].dirty">{{postCodeErrInvalid}}</div>
+        <!-- NEXT button -->
+        <button id="brk_main_btn_next"
+          text-center
+          ion-button
+          large
+          class="breakroom--button-default helix--submit submit"
+          type="submit"
+          [disabled]="!profileForm.valid"> {{nextButtonText}}
+          </button>
+
+          <div class="page-edit-profile--div--cancel" large text-center>
+            <a class="page-edit-profile--cancel helix--submit"
+               (click)="onCancelTap()">
+                {{cancelButtonText}}
+              </a>
+          </div>
+
+      </div>
+      </form>
+    </ion-list>
+  </ion-content>
+

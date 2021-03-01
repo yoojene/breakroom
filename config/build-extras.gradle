@@ -1,0 +1,9 @@
+configurations.all {
+    resolutionStrategy {
+      force 'com.android.support:appcompat-v7:27.0.0'
+      force 'com.android.support:support-v4:27.1.0'
+      force 'com.google.android.gms:play-services:15.+'
+      force 'com.google.android.gms:play-services-gcm:15.+'
+      force 'com.google.android.gms:play-services-location:15.+'
+    }
+}

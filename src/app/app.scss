@@ -1,0 +1,255 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+// General
+body{
+  letter-spacing: 0.5px;
+  font-feature-settings: "liga" 0;
+}
+
+.offlineOverlay {
+  pointer-events: none;
+  overflow: scroll;
+}
+
+.settings-modal{
+  background: rgba(0,0,0,0.4);
+}
+
+.content {
+  background-color: color($colors, background);
+}
+.back-button-text {
+  display:none;
+}
+
+.bar-button-default {
+  color: #FFFFFF;
+}
+
+.toolbar-background {
+  background-color: color($colors, turquiose) !important;
+}
+
+.picker-button {
+  font-weight: 100 !important;
+}
+
+ion-navbar.toolbar.toolbar-ios {
+  padding-top: 17px;
+  min-height: 55px;
+}
+
+.list-ios .item-block .item-inner {
+  border-bottom: none;
+}
+
+.list-md .item-block .item-inner {
+  border-bottom: none;
+}
+
+
+.input-error {
+  color: color($colors, danger);
+}
+
+
+// Helix overrides
+
+// For Stencil pharma Components
+.helix--button.helix--submit.submit {
+    background-color: color($colors, dullyellowgreen);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3.5rem;
+}
+.helix--button.helix--submit.submit.activated {
+    background-color: color($colors, dullyellowgreen);
+}
+
+.helix--button-primary.activated, .helix--button-primary:hover:enabled, .helix--button.activated, .helix--button:hover:enabled {
+  background-color: color($colors, lightcyan);
+}
+.helix--input.icon {
+  font-size: 14px;
+  background-position: 95%, 10px;
+  padding-left: 15px;
+  border-radius: 5px;
+}
+.input {	     
+  font-size: 14px;	
+}
+
+@media only screen and (max-width: 320px)  {
+  .helix--input.icon {
+    font-size: 11px !important;
+  }
+
+  .select-text {
+  font-size: 11px !important;
+  }
+
+  .datetime-ios {
+    font-size: 11 !important;
+  }
+
+  .input {
+    font-size: 11px !important;
+  }
+}
+
+// Buttons in app
+
+// Default Button:
+.breakroom--button-default{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: color($colors, darklimegreen);
+  border-radius: 3.5rem;
+}
+.breakroom--button-default.button-outline-ios {
+  border: none;
+}
+.breakroom--button-default.button-outline-md {
+  border: none;
+}
+.breakroom--button-default.button-ios.activated {
+  background-color: color($colors, darklimegreen);
+}
+.breakroom--button-default.button-ios.activated {
+  background-color: color($colors, darklimegreen);
+}
+
+.breakroom--button-default.button-md.activated {
+  background-color: color($colors, darklimegreen);
+}
+.breakroom--button-default.button-md.activated {
+  background-color: color($colors, darklimegreen);
+}
+
+
+// Icons and placeholders
+
+.keys {
+  background-image: url('../assets/imgs/icon_pencil.svg');
+}
+
+// ion-datetime custom icon
+.datetime-text.datetime-placeholder {
+  width: 30px;
+  height: 30px;
+}
+
+.datetime-text {
+  min-height: 0;
+}
+
+.datetime-ios {
+  padding: 0;
+  font-size: 14px;
+}
+
+.item-datetime {
+  background-image: url('../assets/imgs/icon_chevron.svg');
+  background-position: 95% 12px;
+  background-size: 22pt;
+  padding-left: 15px;
+  background-repeat: no-repeat;
+  padding-bottom: 4px;
+  padding-top: 5px;
+}
+
+// ion-select custom icon
+.item-select {
+  background-image: url('../assets/imgs/icon_chevron.svg');
+  background-position: 95% 12px;
+  background-size: 22pt;
+  padding-left: 15px;
+  background-repeat: no-repeat;
+  padding-bottom: 4px;
+  padding-top: 5px;
+}
+
+.select-ios {
+  padding: 0px;
+
+  .select-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.select-icon-inner {
+  display: none;
+}
+
+.select-text {
+  padding-top: 5px;
+  font-size: 14px;
+  overflow: visible;
+
+}
+.alert-ios .alert-button:last-child {
+  font-weight: inherit;
+}
+
+.alert-ios .alert-radio-label{
+  white-space: normal  !important;
+}
+
+.alert-ios .alert-radio-label {
+  color:color($colors, dullyellowgreen);
+}
+.alert-ios [aria-checked=true] .alert-radio-label {
+  color:color($colors, dullyellowgreen);
+}
+.alert-ios [aria-checked=true] .alert-radio-inner {
+  border-color :color($colors, dullyellowgreen);
+}
+
+// iOS
+.alert-ios .alert-wrapper{
+  max-width: 300px !important;  
+}
+
+.toolbar-background-ios {
+  background: none;
+}
+
+
+.header-ios .toolbar-background-ios {
+  border-style: none;
+  border-color: transparent
+}
+
+
+// MD
+
+.toolbar-background-md {
+  background: none;
+}
+.header-md .toolbar-background-md {
+  border-style: none;
+  border-color: transparent
+}
+.header-md::after {
+  background-image: none;
+}
+
+

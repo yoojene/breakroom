@@ -1,0 +1,92 @@
+page-create-account-profile {
+  ion-item.helix--input {
+    background-position: 95% 12px;
+  }
+
+  .page-create-account-profile {
+
+     &--main-text {
+         color: color($colors, turquiose);
+      }
+
+      &--error {
+        color: color($colors, danger);
+        margin-top: -2rem;
+      }
+      &--review {
+        color: color($colors, dullyellowgreen);
+        padding-left: 5%;
+        padding-top: 5%;
+      }
+
+      &--profile-label {
+        padding-left: 3.5rem;
+      }
+
+      &--item {
+        padding-left: 15px;
+        border: 1px solid var(--light-grey);
+        width: 80%;
+        border-radius:  5px;
+        margin: auto;
+        margin-bottom: 2rem;
+      }
+
+      .input {
+        font-size: 14px;
+        color: grey;
+      }
+
+      .username {
+        font-weight: bold;
+        color: color($colors, turquiose);
+        padding-left: 7.5rem;
+      }
+
+      .username-label {
+        margin-bottom: 0px;
+      }
+
+      .username-error {
+        margin-top: 0rem;
+      }
+
+      .username-input {
+        text-transform: lowercase;
+      }
+
+      ::-webkit-input-placeholder {
+        text-transform: initial;
+     }
+     
+     :-moz-placeholder { 
+        text-transform: initial;
+     }
+     
+     ::-moz-placeholder {  
+        text-transform: initial;
+     }
+     
+     :-ms-input-placeholder { 
+        text-transform: initial;
+     }
+
+  }
+
+
+}
+
+// Info Alerts
+  .alert-title {
+     color: color($colors, dullyellowgreen);
+  }
+
+  .alert-button.alert-button-ios{
+    color: color($colors, dullyellowgreen);
+
+  }
+
+  .alert-ios .alert-button:last-child {
+    font-weight: inherit;
+  }
+

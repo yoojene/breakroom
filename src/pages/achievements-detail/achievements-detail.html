@@ -1,0 +1,40 @@
+
+<ion-header>
+
+  <ion-navbar #navbar>
+    <ion-title>{{achievementsHeader}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="page-achievements-detail">
+
+  <!-- Last Achievement -->
+  <last-achievement
+    [animOptions]="lottieConfig"
+    [achievementBodyText]="achievement?.body"
+    [achievementTitle]="achievement?.title"
+    [width]=350
+    [height]=350
+    [showAnimation]="true"
+    [showImage]="false"
+    [showHeader]="false"
+    [showSpinner]="showSpinner"
+    [showCelebrate]="!achievement?.celebrated"
+    [showAchievementTitle]="true"
+    [showAchievementText]="true"
+    (celebrateAchievement)="onCelebrateAchievementTap($event)"
+    (animationEvent)="onAnimationEventEmitted($event)"
+    >
+  </last-achievement>
+
+  <reaction
+  *ngIf="achievement?.celebrated"
+    [showLike]="true"
+    [showHighFive]="true"
+    [achievementEventId]="achievement?.eventId"
+    [achievementPersonId]="achievement?.janrainId">
+  </reaction>
+
+</ion-content>

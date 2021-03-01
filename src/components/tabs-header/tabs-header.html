@@ -1,0 +1,11 @@
+<ion-header class="breakroom-tabs-header" *mobxAutorun>
+  <ion-navbar hideBackButton="{{hideBackButton}}">
+    <ion-buttons start>
+      <div (click)="onSettingsTap()" class="header-settings-icon" [ngStyle]="{'background-image': 'url(' + userStore.user.avatarUrl +')'}"></div>
+    </ion-buttons>
+    <ion-title>{{headerTitle}}</ion-title>
+    <ion-buttons end>
+      <div (click)="onNotificationsTap()" [ngClass]="hasNotification?'notifications-header-icon':'no-notifications-header-icon'"></div>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>

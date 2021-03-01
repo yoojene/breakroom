@@ -1,0 +1,29 @@
+
+
+
+<!-- <h1> This is a test skeleton dashboard component</h1> -->
+
+<div class="skeleton-dashboard" [class.fade-out]="hasDataLoaded">
+  <!--Circle indicator -->
+  <div class="skeleton-dashboard--circle"></div>
+
+  <div class="skeleton-dashboard--remaining-days-container">
+    <div class="skeleton-dashboard--remaining-days">{{remainingDays}} {{daysText}}</div>
+    <h2 class="until-quit-date">{{untilYourQuitDateText}}</h2>
+  </div>
+
+  <hr />
+
+  <!-- Money Saved -->
+  <span class="skeleton-dashboard--total-savings">{{savedDollars}}.
+    <span class="cents">{{savedCents}}</span>
+  </span>
+  <h2 class="saved">{{savedText}}</h2>
+  <h3 class="projected">{{projectedText}}</h3>
+  <h4 class="projected-savings">{{projectedLifeSavings}}</h4>
+  <div >
+    <div class="skeleton-dashboard--line-graph">
+
+    </div>
+
+  </div>

@@ -1,0 +1,72 @@
+page-daily-data-capture {
+  .vertical-gap {
+    height: 15%;
+  }
+
+  .item-ios{
+    background-color: transparent;
+  }
+  .item-md{
+    background-color: transparent;
+  }
+  .horizontal-wrap {
+    display: flex;
+    justify-content: center;
+    // do not remove from this block
+    .button-inner {
+      float: left;
+      width: 100%;
+      padding-top: 80%;
+      padding-bottom: 50%;
+      line-height: 1em;
+      text-align: center;
+      font-family: Verdana;
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+    .round-button-circle {
+      width: 4.3em;
+      height: 0.5em;
+      padding-bottom: 4em;
+      border-radius: 50%;
+      overflow: hidden;
+      color: map-get($colors, brdarkgrey);
+      background: map-get($colors, lightgray);
+      display: inline-block;
+      box-shadow: 0 0 3px gray;
+    }
+
+    .round-button-circle:active {
+      color: white;
+      background: map-get($colors, dullyellowgreen);
+    }
+    .round-button-circle:hover {
+      color: white;
+      background: map-get($colors, dullyellowgreen);
+    }
+
+    .round-button-avatar {
+      width: 100px;
+      height: 100px;
+      padding:5px;
+      background: (url("../assets/imgs/f-calendar.svg"));
+    }
+
+
+  }
+   .button-group {
+      margin-top: 5rem;
+    }
+
+    .skip {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      color: color($colors, turquiose);
+      border: none;
+    }
+
+  .horizontal-gap {
+    width: 2.5em;
+  }
+}

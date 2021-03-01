@@ -1,0 +1,45 @@
+.progress-alert-container  {
+  display: block;
+  background: white;
+  height: 65%;
+  width: 66%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  border-radius: 2.5%;
+  position: relative;
+}
+
+
+.progress-alert-header {
+  background:(url('../assets/imgs/icon-green-Increase.svg'));
+  height: 100px;
+  width: 100px;
+    margin-left: auto;
+  margin-right: auto;
+
+}
+
+.progress-alert-title {
+  color: color($colors, dullyellowgreen);
+   margin-top: 15px;
+}
+
+.progress-alert-text {
+  overflow: auto;
+  height: calc(100% - 189px);
+  padding-bottom: 100px;
+}
+.progress-alert-button {
+  color: color($colors, dullyellowgreen);
+  border-color: color($colors, dullyellowgreen);
+  position: absolute;
+  bottom: 0;
+  border-bottom: none;
+}
+
+.button-outline-ios.activated {
+    color: color($colors, dullyellowgreen);
+    background-color: transparent;
+}
+

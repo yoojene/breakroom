@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar hideBackButton="true" >
+        <ion-title>Nearly there</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content hide-tabs>
+    <div class="vertical-gap"></div>
+    <div class="horizontal-wrap"  text-center  float-center>
+        <button ion-button class="round-button-avatar">
+            <img [src]="avatar" alt="">
+        </button>
+        <h2 ion-text text-center text-wrap color="turquiose">We just need to ask you some questions about your smoking habits so we can personalise your journey.</h2>
+
+    </div>
+
+    <button text-center ion-button large (click)="onAskButtonTap()"  class="breakroom--button-default helix--submit submit">Ask away</button>
+</ion-content>

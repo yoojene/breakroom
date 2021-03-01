@@ -1,0 +1,89 @@
+.tabbar, .tabs-ios, .tabs-md , .tabs-wp{
+  .tab-button-icon {
+      background-repeat:no-repeat;
+      background-position:center;
+      height:46px;
+      width:46px;
+      background-size:contain;
+      -webkit-background-size: contain;
+      -moz-background-size: contain;
+      -o-background-size: contain;
+      &:before {
+          display:none;
+      }
+  }
+}
+
+.tabs-ios {
+a[aria-selected=false]{
+   .tab-button-icon[ng-reflect-name=newsfeed], .tab-button-icon[aria-label="newsfeed outline"] {
+    background: url(../assets/imgs/icon-tabbar-bar-3-dashboard-default.svg);
+  }
+  .tab-button-icon[ng-reflect-name=achievements], .tab-button-icon[aria-label="achievements outline"] {
+    background: url(../assets/imgs/icon-tabbar-bar-2-Achievements-default.svg);
+  }
+  .tab-button-icon[ng-reflect-name=dashboard], .tab-button-icon[aria-label="dashboard outline"] {
+    background: url(../assets/imgs/icon-tabbar-diary-1-default.svg);
+  }
+  .tab-button-icon[ng-reflect-name=champixinfo], .tab-button-icon[aria-label="champixinfo outline"] {
+    background: url(../assets/imgs/icon-tabbar-bar-4-question-default.svg);
+  }
+  .tab-button-icon[ng-reflect-name=content], .tab-button-icon[aria-label="content outline"] {
+    background: url(../assets/imgs/icon-tabbar-bar-5-information-default.svg);
+  }
+}
+a[aria-selected=true] {
+  .tab-button-icon[ng-reflect-name=newsfeed], .tab-button-icon[aria-label="newsfeed"] {
+    background: url(../assets/imgs/icon-tabbar-bar-3-dashboard-active.svg);
+  }
+  .tab-button-icon[ng-reflect-name=achievements], .tab-button-icon[aria-label="achievements"] {
+    background: url(../assets/imgs/icon-tabbar-bar-2-Achievements-active.svg);
+  }
+  .tab-button-icon[ng-reflect-name=dashboard], .tab-button-icon[aria-label="dashboard"] {
+    background: url(../assets/imgs/icon-tabbar-diary-1-active.svg);
+  }
+  .tab-button-icon[ng-reflect-name=champixinfo], .tab-button-icon[aria-label="champixinfo"] {
+    background: url(../assets/imgs/icon-tabbar-bar-4-question-active.svg);
+  }
+  .tab-button-icon[ng-reflect-name=content], .tab-button-icon[aria-label="content"] {
+    background: url(../assets/imgs/icon-tabbar-bar-5-information-active.svg);
+  }
+}
+}
+
+.tabs-md {
+  a[aria-selected=false]{
+     .tab-button-icon[ng-reflect-name=newsfeed], .tab-button-icon[aria-label="newsfeed"] {
+      background: url(../assets/imgs/icon-tabbar-diary-1-default.svg);
+    }
+    .tab-button-icon[ng-reflect-name=achievements], .tab-button-icon[aria-label="achievements"] {
+      background: url(../assets/imgs/icon-tabbar-bar-2-Achievements-default.svg);
+    }
+    .tab-button-icon[ng-reflect-name=dashboard], .tab-button-icon[aria-label="dashboard"] {
+      background: url(../assets/imgs/icon-tabbar-bar-3-dashboard-default.svg);
+    }
+    .tab-button-icon[ng-reflect-name=champixinfo], .tab-button-icon[aria-label="champixinfo"] {
+      background: url(../assets/imgs/icon-tabbar-bar-4-question-default.svg);
+    }
+    .tab-button-icon[ng-reflect-name=content], .tab-button-icon[aria-label="content"] {
+      background: url(../assets/imgs/icon-tabbar-bar-5-information-default.svg);
+    }
+  }
+  a[aria-selected=true] {
+    .tab-button-icon[ng-reflect-name=newsfeed], .tab-button-icon[aria-label="newsfeed"] {
+      background: url(../assets/imgs/icon-tabbar-diary-1-active.svg);
+    }
+    .tab-button-icon[ng-reflect-name=achievements], .tab-button-icon[aria-label="achievements"] {
+      background: url(../assets/imgs/icon-tabbar-bar-2-Achievements-active.svg);
+    }
+    .tab-button-icon[ng-reflect-name=dashboard], .tab-button-icon[aria-label="dashboard"] {
+      background: url(../assets/imgs/icon-tabbar-bar-3-dashboard-active.svg);
+    }
+    .tab-button-icon[ng-reflect-name=champixinfo], .tab-button-icon[aria-label="champixinfo"] {
+      background: url(../assets/imgs/icon-tabbar-bar-4-question-active.svg);
+    }
+    .tab-button-icon[ng-reflect-name=content], .tab-button-icon[aria-label="content"] {
+      background: url(../assets/imgs/icon-tabbar-bar-5-information-active.svg);
+    }
+  }
+  }

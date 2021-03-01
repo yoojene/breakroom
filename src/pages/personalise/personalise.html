@@ -1,0 +1,160 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{ 'PERSONALISE.STEP' | translate }} {{currentSlideIndex + 1}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding text-center>
+
+        <button ion-button [class]="ionIconHeader" ></button>
+    <ion-slides pager="true" paginationType="bullets" [options]="{onlyExternal: false, pagination: true}" class="swiper-no-swiping"
+        (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
+          <div text-center>
+            <br/>
+            <!-- Cigs per day -->
+            <label class="helix--label">
+                {{ 'PERSONALISE.AVG_CIGS_DAY_TITLE' | translate }}<br />
+                <input class="helix--input icon keys"
+
+                (keyup)="eventHandler($event, 'numberCigarettesSmoked')"
+                type="number" [ngStyle]="{'background-image' : numberCigarettesSmoked ? 'none' : ''}" [(ngModel)]="numberCigarettesSmoked" pattern="[0-9]*" placeholder="Number"
+                />
+            </label>
+            <ion-label *ngIf="numberCigarettesSmoked > 100"  class="error" slot="error-message">{{aveCigsSmokedErrorText}}</ion-label>
+            <ion-label *ngIf="numberCigarettesSmoked%1" class="error" >{{invalidAvgCigarettesErrorText}}</ion-label>
+            <ion-label *ngIf="numberCigarettesSmoked <= 0"  class="error" slot="error-message">{{invalidAvgCigarettesErrorText}}</ion-label>
+            <!-- Price per pack -->
+            <label class="helix--label">{{ 'PERSONALISE.PRICE_PER_PACK_TITLE' | translate }}<br />
+                <input class="helix--input icon keys"
+                (keyup)="eventHandler($event, 'pricePerPacket')"
+                type="number"
+                [ngStyle]="{'background-image' : pricePerPacket ? 'none' : ''}"  [(ngModel)]="pricePerPacket"
+                maxlength="3" pattern="[0-9]*" placeholder="Price $"
+                />
+            </label>
+            <ion-label *ngIf="pricePerPacket%1"  class="error" slot="error-message">{{invalidPricePerPacketErrorText}}</ion-label>
+            <ion-label *ngIf="pricePerPacket <= 0"  class="error" slot="error-message">{{invalidPricePerPacketErrorText}}</ion-label>
+            <ion-label *ngIf="pricePerPacket > 100"  class="error" slot="error-message">{{pricePerPacketErrorText}}</ion-label>
+            <!-- Number per pack -->
+            <label class="helix--label">{{ 'PERSONALISE.NUM_IN_PACK_TITLE' | translate }} <br />
+                <input class="helix--input icon keys"
+                (keyup)="eventHandler($event, 'cigarettesInPacket')" type="number" [ngStyle]="{'background-image' : cigarettesInPacket ? 'none' : ''}" [(ngModel)]="cigarettesInPacket" maxlength="2" pattern="[0-9]*" placeholder="Number" />
+            </label>
+            <ion-label *ngIf="cigarettesInPacket%1" class="error">{{numInPacketErrorText}}</ion-label>
+            <ion-label *ngIf="cigarettesInPacket <= 0" class="error">{{numInPacketErrorText}}</ion-label>
+            <ion-label *ngIf="cigarettesInPacket > 50" class="error">{{invalidNumInPacketErrorText}}</ion-label>
+            <div class="review" [innerHTML]="reviewMessage"></div>
+            <button text-center ion-button large (click)="goSecondScreen()" [disabled]="willEnterScreen2()" class="breakroom--button-default helix--submit submit">Next</button>
+        </div>
+        </ion-slide>
+        <ion-slide pager [options]="{onlyExternal: false}" class="swiper-no-swiping">
+            <br/>
+            <br/><br/><br/>
+            <!-- Reason for Quitting -->
+            <label class="helix--label">{{ 'PERSONALISE.REASON_QUIT_TITLE' | translate }}<br /></label>
+
+            <ion-item>
+                <ion-select
+                (click)='onOpen()'
+                style="height: auto; min-height: 51px;"
+                text-wrap
+                class="helix--input icon"
+                [selectOptions]="{title: reasonQuittingTitle}"
+                (ionFocus)="onQuitReasonTouched()"
+                placeholder="Please Select" (ionCancel)="quitResonCancel()" [(ngModel)]="reasonQuitting">
+                    <ion-option text-wrap value="health">{{ 'PERSONALISE.REASON_QUIT_1' | translate }}</ion-option>
+                    <ion-option text-wrap value="financial">{{ 'PERSONALISE.REASON_QUIT_2' | translate }}</ion-option>
+                    <ion-option text-wrap value="familyfriends">{{ 'PERSONALISE.REASON_QUIT_3' | translate }}</ion-option>
+                    <ion-option text-wrap value="married">{{ 'PERSONALISE.REASON_QUIT_4' | translate }}</ion-option>
+                    <ion-option text-wrap value="family">{{ 'PERSONALISE.REASON_QUIT_5' | translate }}</ion-option>
+                    <ion-option text-wrap value="social">{{ 'PERSONALISE.REASON_QUIT_6' | translate }}</ion-option>
+                    <ion-option text-wrap value="dependent">{{ 'PERSONALISE.REASON_QUIT_7' | translate }}</ion-option>
+                    <ion-option text-wrap value="healthScare">{{ 'PERSONALISE.REASON_QUIT_8' | translate }}</ion-option>
+                    <ion-option text-wrap value="job">{{ 'PERSONALISE.REASON_QUIT_9' | translate }}</ion-option>
+                    <ion-option text-wrap value="other">{{ 'PERSONALISE.REASON_QUIT_10' | translate }}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-label *ngIf="reasonQuittingError"class="quit-error">{{reasonQuittingErrorText}}</ion-label>
+            <button text-center ion-button large (click)="goThirdScreen()" [disabled]="willEnterScreen3()" class="breakroom--button-default helix--submit submit">Next</button>
+
+        </ion-slide>
+        <ion-slide pager [options]="{onlyExternal: false}" class="swiper-no-swiping">
+            <br/>
+
+            <label class="helix--label">
+                {{ 'PERSONALISE.LONG_SMOKED_TITLE' | translate }}
+                <input class="helix--input icon keys"
+                (keyup)="eventHandler($event, 'numberYearsSmoked')" type="number" pattern="[0-9]*" maxLength="3"
+                [ngStyle]="{'background-image' : numberYearsSmoked ? 'none' : ''}" required
+                 [(ngModel)]="numberYearsSmoked" placeholder="Number" (focusout)="checkNumberYearsSmokedUndefined()" />
+            </label>
+            <ion-label *ngIf="numberYearsSmoked === null" class="error">{{invalidSmokingYearsBlankText}}</ion-label>
+            <ion-label *ngIf="numberYearsSmoked != null && numberYearsSmoked < 1 " class="error">{{invalidSmokingYearserrorText}}</ion-label>
+            <ion-label *ngIf="numberYearsSmoked >100 " class="error">{{invalidSmokingYearsLimitText}}</ion-label>
+            <ion-label *ngIf="numberYearsSmoked > relativeDiffYears && numberYearsSmoked <100" class="error">{{invalidSmokingYearsAgeLimitText}}</ion-label>
+
+            <label class="helix--label">
+                {{ 'PERSONALISE.TIMES_QUIT_TITLE' | translate }}
+                <input class="helix--input icon keys"
+                (keyup)="eventHandler($event, 'numberAttemptedQuits')" type="number" pattern="[0-9]*" maxLength="3"
+                [ngStyle]="{'background-image' : numberAttemptedQuits ? 'none' : ''}"
+                (focusout)="checkNumberAttemptedQuitsUndefined()"
+                [(ngModel)]="numberAttemptedQuits" placeholder="Number" />
+            </label>
+            <ion-label *ngIf="numberAttemptedQuits === null" class="error">{{invalidSmokingYearsBlankText}}</ion-label>
+            <ion-label *ngIf="numberAttemptedQuits%1"class="error">{{invalidQuitAttemptErrorText}}</ion-label>
+            <ion-label *ngIf="numberAttemptedQuits > 100" class="error">{{invalidQuitAttemptLimitErrorText}}</ion-label>
+
+            <button text-center ion-button large (click)="goFourthScreen()" [disabled]="willEnterScreen4()" class="breakroom--button-default helix--submit submit">Next</button>
+
+            <div float-center>
+                <button ion-button right color="light" (click)="skip()" style="color:#51C4CD">{{ 'BUTTONS.SKIP_FINISH_LATER' | translate }}</button>
+            </div>
+        </ion-slide>
+        <ion-slide pager [options]="{onlyExternal: false}" class="swiper-no-swiping">
+            <br/>
+
+            <label class="helix--label">{{ 'PERSONALISE.TRIED_CHAMPIX_TITLE' | translate }}</label>
+
+            <ion-item>
+                <ion-select class="helix--input icon"  [selectOptions]="{title: 'Please select'}"
+                placeholder="Please select" (ionCancel)="isTakenChampixBeforeCancel()"
+                (ionChange)="onChangeTakenChampixBefore()"
+                 [(ngModel)]="isTakenChampixBefore">
+                        <ion-option value="true">{{ 'BUTTONS.YES' | translate }}</ion-option>
+                        <ion-option value="false">{{ 'BUTTONS.NO' | translate }}</ion-option>
+                        <ion-option value="dontremember">{{ 'BUTTONS.CANT_REMEMBER' | translate }}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-label *ngIf="isTakenChampixBeforeError"class="quit-error">{{isTakenChampixBeforeErrorText}}</ion-label>
+            <label class="helix--label">{{ 'PERSONALISE.PREV_QUIT_METHOD_TITLE' | translate }}
+                    <ion-icon
+                    style="color:grey"
+                    (click)="onProjectedLifeSavingsTap()"
+                    name="ios-information-circle-outline">
+                 </ion-icon>
+            </label>
+
+            <ion-item>
+                <ion-select
+                  class="helix--input icon"
+                  style="height: auto; min-height: 51px;"
+                  [selectOptions]="{title: 'Please select'}"
+                  placeholder="Please select"
+                  (ionCancel)="previousQuitMethodCancel()"
+                  [disabled]="!isTakenChampixBefore || isTakenChampixBefore=='false' || isTakenChampixBefore === 'dontremember'"
+                  [(ngModel)]="previousQuitMethod">
+                    <ion-option *ngFor="let method of quitMethods" [value]="method.value">{{ method.name }}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-label *ngIf="previousQuitMethodError && isTakenChampixBefore=='true'"class="quit-error">{{previousQuitMethodErrorText}}</ion-label>
+
+            <button text-center ion-button large (click)="done()" [disabled]="willFinishPersonalise()" class="breakroom--button-default helix--submit submit">All done</button>
+
+            <div float-center>
+                <button ion-button right color="light" (click)="skip()" style="color:#51C4CD">{{ 'BUTTONS.SKIP_FINISH_LATER' | translate }}</button>
+            </div>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

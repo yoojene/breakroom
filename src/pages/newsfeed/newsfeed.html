@@ -1,0 +1,73 @@
+<tabs-header [hasNotification]="hasNotification" [headerTitle]="newsfeedHeader"> </tabs-header>
+
+<ion-content  padding>
+
+  <ion-list *ngIf="!isLoading" no-lines>
+    <ion-item   class="page-newsfeed--newsfeed-item" *ngFor="let cf of communityNewsfeed;" >
+        <ion-row>
+            <ion-col>
+                <div  *ngIf="cf.person.attributes.username" class="page-newsfeed--newsfeed-row">
+                    <div  class="page-newsfeed--profile">
+                        <img-loader
+                            style="float:left; margin-right:20px; margin-top:7px;"
+                            [spinner]="false"
+                            [imgAttributes]="imageAttributes"
+                            width="40px"
+                            height="40px"
+                            [src]="cf.person.attributes.avatarUrl">
+                        </img-loader>
+
+                        <h6>{{cf.person.attributes.username}}</h6>
+                    </div>
+                    <div class="page-newsfeed--newsfeed-time">{{cf.sharedTime}}&nbsp;{{agoText}}</div>
+                </div>
+
+                <div  *ngIf="!cf.person.attributes.username" class="page-newsfeed--newsfeed-row">
+                    <ion-spinner  style="float:left; margin-right:20px;" name="bubbles"></ion-spinner>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <div *ngIf="cf.attributes.achievementTitle" class="page-newsfeed--newsfeed-row">
+                    <last-achievement
+                    [animOptions]="cf.lottieConfig"
+                    [achievementBodyText]="celebrateText+ ' ' + cf.attributes.achievementTitle"
+                    [width]=120
+                    [waitToRender]="true"
+                    [height]=100
+                    [showImage]="false"
+                    [showAnimation]="true"
+                    [showAchievementText]="true"
+                    >
+                </last-achievement>
+                </div>
+                <ion-spinner  style="width: 100%" *ngIf="!cf.attributes.achievementTitle" name="bubbles"></ion-spinner>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col text-center>
+                <div class="page-newsfeed--newsfeed-row">
+                    <reaction
+                    [showLike]="true"
+                    [showHighFive]="true"
+                    [isOnNewsfeed]="true"
+                    [achievementEventId]="cf.id"
+                    [achievementPersonId]="cf.janrainId">
+                    </reaction>
+                </div>
+            </ion-col>
+        </ion-row>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-spinner class="loading-page" *ngIf="isLoading" item-start name="ios"></ion-spinner>
+
+ <ion-infinite-scroll #infiniteScroll  [threshold]="'450%'"  (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data...">
+         </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+</ion-content>

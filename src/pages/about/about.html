@@ -1,0 +1,20 @@
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>{{aboutPageTitle}}</ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+
+  <ion-content class="page-about" text-center padding>
+    <div class="page-about--breakroom-logo"></div>
+    <div>
+      <h1 ion-text text-wrap color="turquiose" [innerHTML]="appName"></h1>
+      <h3 [innerHTML]="appVersion"></h3>
+      <span [innerHTML]="appVersionNumber"></span>
+      <p [innerHTML]="appTrademark"></p>
+      <h3 ion-text text-wrap color="turquiose" (click)="termsOfuse()" [innerHTML]="termsOfUse"></h3>
+      <p color="pfegray" [innerHTML]="appCopyRight"></p>
+    </div>
+  </ion-content>

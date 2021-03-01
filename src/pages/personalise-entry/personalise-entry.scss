@@ -1,0 +1,22 @@
+page-personalise-entry {
+  .content{
+    background-color: #ffff;
+  }
+  .vertical-gap {
+    height: 15%;
+  }
+  .horizontal-wrap {
+    justify-content: center;
+
+    h2{
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+    .round-button-avatar {
+      width: 80px;
+      height: 80px;
+      padding: 0;
+      background: transparent;
+    }
+  }
+}

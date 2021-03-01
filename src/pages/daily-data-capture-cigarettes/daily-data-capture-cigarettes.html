@@ -1,0 +1,69 @@
+<ion-header *ngIf="!fromDashBoard">
+        <ion-navbar>
+            <ion-title>{{dailyDiaryHeader}}</ion-title>
+            <ion-buttons end>
+                <button ion-button icon-only>
+                    <div class="notifications-header-icon"></div>
+                </button>
+            </ion-buttons>
+        </ion-navbar>
+    </ion-header>
+
+<tabs-header *ngIf="fromDashBoard" [hasNotification]="hasNotification" hideBackButton="true" [headerTitle]="title"></tabs-header>
+
+<ion-content text-center>
+    <div class="vertical-gap"></div>
+    <h2 ion-text text-center text-wrap color="turquiose">{{cigsSmokedTodayText}}</h2>
+    <br />
+
+    <div *ngIf="totalCigarettes === null" class="horizontal-wrap" float-center>
+        <button ion-button class="round-button-avatar"></button>
+    </div>
+
+    <div *ngIf="totalCigarettes !== null" class="daily-data-capture-cigarettes-circle">
+        <span class="daily-data-capture-cigarettes-day">{{totalCigarettes}}</span>
+    </div>
+
+    <br/><br/>
+
+    <ion-item class="helix--input date-item">
+        <ion-label class="input" *ngIf="!smokingDate">Date</ion-label>
+        <ion-datetime
+         (ionCancel)="isSmokingDateBlank()"
+         (ionChange)="isSmokingDateBlank()"
+          text-center
+          displayFormat="D MMM YYYY"
+          [max]="maxDate" [min]="minDate"
+          [(ngModel)]="smokingDate">
+        </ion-datetime>
+    </ion-item>
+    <ion-label *ngIf="showDateErrorMessage" class="error">{{selectDateText}}</ion-label>
+    <ion-label *ngIf="showDateEInvalidrrorMessage" class="error"> {{selectDateInvalidText}}</ion-label>
+
+    <br/>
+    <ion-item class="helix--input icon">
+            <ion-label class="input" *ngIf="totalCigarettes === null ">Choose</ion-label>
+        <ion-select
+        (ionCancel)="isTotalCigarettesBlank()"
+        (ionChange)="isTotalCigarettesBlank()"
+        [(ngModel)]="totalCigarettes"
+        [selectOptions]="{title: 'How many cigarettes did you smoke today?'}"
+        multiple="false"
+        cancelText="Cancel"
+        okText="Done">
+            <div *ngFor="let cig of cigarettes">
+              <ion-option [value]="cig.cig">{{cig.cig}}</ion-option>
+            </div>
+        </ion-select>
+    </ion-item>
+    <ion-label *ngIf="showTotalCigarettesErrorMessage" class="error">{{selectNumberCigarretesText}}</ion-label>
+    <div class="review" [innerHTML]="reviewMessage"></div>
+    <button text-center ion-button large [disabled]="disabled" (click)="onYesTap()" class="breakroom--button-default helix--submit submit">OK</button>
+
+    
+    <div text-center>
+        <button ion-button right color="light" (click)="onSkipTap()" style="color:#51C4CD">Skip</button>
+
+    </div>
+
+</ion-content>

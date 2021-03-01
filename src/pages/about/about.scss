@@ -1,0 +1,27 @@
+page-about{
+  .page-about{
+    padding-top:50px;
+    &--breakroom-logo{
+      background:(url('../assets/imgs/BREAKROOM_blue_icon.svg'));
+      width: 125px;
+      height: 125px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 51px;
+      margin: 50px auto 0;
+    }
+  h1{
+    font-size: 38px !important;
+    margin: 30px 0;
+    color: #51c4cd !important;
+  }
+  h3{
+    font-size: 20px;
+    margin: 0 0 15px;
+  }
+  p{
+    font-size: 16px;
+    margin: 15px 0;
+  }
+}
+}

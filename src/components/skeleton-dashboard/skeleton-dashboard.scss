@@ -1,0 +1,136 @@
+skeleton-dashboard {
+
+  $skeletonColor : #ececec;
+
+  $animationDuration : 1500ms;
+
+  .skeleton-dashboard {
+    // position the skeleton cards absolute,
+    // this way a nice crossfade is possible
+    position: absolute;
+    width: 100%;
+    // z-index: -1;
+
+    text-align: center;
+    padding-top: 50px;
+
+    &--circle {
+      border-radius: 50%;
+      background-color: $skeletonColor;
+      width: 210px;
+      height: 210px;
+      border: 1px solid $skeletonColor;
+      margin-right: 20px;
+      display: inline-block;
+    }
+
+    &--remaining-days-container{
+      padding-top: 1rem;
+    }
+    &--remaining-days {
+      background-color: $skeletonColor;
+      color: $skeletonColor;
+      font-family: 'Panton-Bold', sans-serif;
+      font-size: 40px;
+      width: 40%;
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    .cents {
+      background-color: $skeletonColor;
+      color: $skeletonColor;
+
+    }
+
+    h2.until-quit-date {
+      padding-top: 1rem;
+      background-color: $skeletonColor;
+      color: $skeletonColor;
+      width: 60%;
+      display: inline-block;
+      margin-right: 30px;
+    }
+    h2.saved {
+      margin-top: 10px;
+      background-color: $skeletonColor;
+      color: $skeletonColor;
+      width: 60%;
+      // margin-right: 30%;
+      display: inline-block;
+
+    }
+    h3.projected{
+      background-color: $skeletonColor;
+      color: $skeletonColor;
+      width: 90%;
+      margin-right: 30px;
+      display: inline-block;
+    }
+    h4.projected-savings {
+      background-color: $skeletonColor;
+      color: $skeletonColor;
+      width: 70%;
+      margin-right: 30px;
+      display: inline-block;
+    }
+
+
+    &--total-savings {
+      background-color: $skeletonColor;
+      color: $skeletonColor;
+      font-family: 'Panton-Bold', sans-serif;
+      font-size: 55px;
+      display: inline-block;
+      width: 50%;
+      margin-right: 30px;
+
+    }
+    &--saved-text {
+      background-color: $skeletonColor;
+      color: $skeletonColor;
+      font-family: 'Panton-Semi-Bold', sans-serif;
+      font-size: 28px;
+      margin-right: 30px;
+    }
+
+    &--line-graph {
+      height: 250px;
+      width: 350px;
+      background-color: $skeletonColor;
+      color: $skeletonColor;
+      width: 90%;
+      margin-right: 30px;
+      display: inline-block;
+
+    }
+
+  }
+
+  .fade-out {
+        opacity: 1;
+        animation: fadeOut ease-in 1;
+        animation-fill-mode: forwards;
+        animation-duration: $animationDuration;
+
+    }
+
+    // fade out keyframes
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    // fade each card one after another. this is accomplished
+    // by adding a animation-delay
+    // @for $i from 2 to 4 {
+    //     .fade-out ion-card:nth-child(#{$i}) {
+    //         animation-delay: ($i - 1) * $animationDuration;
+    //     }
+    // }
+
+}

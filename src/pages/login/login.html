@@ -1,0 +1,59 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'LOGIN.A2_TITLE' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding text-center style="vertical-align: middle;">
+
+
+  <br/>
+  <div class="login-icon"></div>
+  <br />
+  <h3 ion-text text-wrap color="turquiose">{{ 'LOGIN.A2_BODYTEXT' | translate}}</h3>
+
+  <br/>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <label class="helix--label">
+            <input
+              class="helix--input icon keys"
+              type="email"
+              [ngStyle]="{'background-image' : loginForm.controls['email'].value ? 'none' : ''}"
+              formControlName="email"
+              autocorrect="off"
+              autocomplete="off"
+              placeholder="{{ 'LOGIN.A2_FIELD_EMAIL' | translate}}"
+              (input)="onInputClearError($event, loginForm.controls['email'])" />
+        </label>
+
+        <ion-label class="input-error" text-wrap *ngIf="(loginForm.controls['email'].errors?.required && loginForm.controls['email'].touched)">{{ 'ERROR_MSG.B2_BLANK_EMAIL' | translate}}</ion-label>
+        <ion-label class="input-error" text-wrap *ngIf="(loginForm.controls['email'].errors?.pattern) && loginForm.controls['email'].touched">{{ 'ERROR_MSG.B2_INVALID_EMAIL' | translate}}</ion-label>
+        <label class="helix--label">
+            <input
+              class="helix--input icon keys"
+              type="password"
+              [ngStyle]="{'background-image' : loginForm.controls['password'].value ? 'none' : ''}"
+              formControlName="password"
+              placeholder="{{ 'LOGIN.A2_FIELD_PASSWORD' | translate}}"
+              (input)="onInputClearError($event, loginForm.controls['password'])" />
+        </label>
+        <div *ngIf="loginForm.valid">
+          <span class="remember-me" float-left>
+            <ion-checkbox formControlName="remember"></ion-checkbox>
+          </span>
+          <ion-label class="remember-text" float-left> {{ 'LOGIN.A2_REMEMBER_ME' | translate }}</ion-label>
+        </div>
+        <br />
+        <ion-label class="input-error" text-wrap *ngIf="(loginForm.controls['password'].errors?.required && loginForm.controls['password'].touched)">{{ 'ERROR_MSG.B2_BLANK_INPUT_PASSWORD' | translate}}</ion-label>
+        <ion-label class="input-error" text-wrap *ngIf="(loginForm.controls['password'].errors?.minlength || loginForm.controls['password'].errors?.pattern) && loginForm.controls['password'].touched">{{ 'ERROR_MSG.B2_INVALID_INPUT_PASSWORD' | translate}}</ion-label>
+        <ion-label class="input-error" text-wrap *ngIf="isIncorrectUserError">{{ 'ERROR_MSG.B2_INVALID_USER' | translate}}</ion-label>
+        <ion-label class="input-error" text-wrap *ngIf="isIncorrectNetworkError">{{ 'ERROR_MSG.B2_INVALID_NETWORK' | translate}}</ion-label>
+        <br/>
+        <button text-center ion-button large [disabled]="!loginForm.valid" class="breakroom--button-default helix--submit submit">{{ 'LOGIN.A2_LOGIN_BUTTON' | translate}}</button>
+        <br />
+        <p ion-text text-wrap text-center>{{ 'LOGIN.A2_FORGOT_PASSWORD_TEXT' | translate}} <a (click)="resetPassword()">{{ 'LOGIN.A2_RESET_PASSWORD_TEXT' | translate}}</a></p>
+    </form>
+</ion-content>
